@@ -1,0 +1,69 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/Rohrschacht/augur-main</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/sim-dep-env</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <io.jenkins.plugins.dapps.DappMainBuilder plugin="EthOps@1.0-SNAPSHOT">
+      <credentialsId>ganache-first</credentialsId>
+      <operationType>versionProposal</operationType>
+      <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+      <webhookTargets>http://10.0.0.6/generic-webhook-trigger/invoke,http://10.1.0.9/generic-webhook-trigger/invoke,http://10.2.0.4/generic-webhook-trigger/invoke,http://10.3.0.7/generic-webhook-trigger/invoke,http://10.4.0.6/generic-webhook-trigger/invoke</webhookTargets>
+    </io.jenkins.plugins.dapps.DappMainBuilder>
+    <hudson.tasks.Shell>
+      <command>set -e
+python3.8 -m venv venv
+yarn
+make build-contracts
+yarn tools flash --key ${DEPLOY_KEY} --config &apos;{&quot;ethereum&quot;: {&quot;http&quot;: &quot;http://10.0.0.12:8545&quot;}}&apos; deploy</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.901.v0038b_6471582">
+      <info>
+        <propertiesFilePath>packages/augur-tools/contract_address.env</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <io.jenkins.plugins.dapps.DappMainBuilder plugin="EthOps@1.0-SNAPSHOT">
+      <credentialsId>ganache-first</credentialsId>
+      <operationType>deploymentProposal</operationType>
+      <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+      <webhookTargets>http://10.0.0.6/generic-webhook-trigger/invoke,http://10.1.0.9/generic-webhook-trigger/invoke,http://10.2.0.4/generic-webhook-trigger/invoke,http://10.3.0.7/generic-webhook-trigger/invoke,http://10.4.0.6/generic-webhook-trigger/invoke</webhookTargets>
+    </io.jenkins.plugins.dapps.DappMainBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <EnvInjectPasswordWrapper plugin="envinject@2.901.v0038b_6471582">
+      <injectGlobalPasswords>true</injectGlobalPasswords>
+      <maskPasswordParameters>true</maskPasswordParameters>
+      <passwordEntries>
+        <EnvInjectPasswordEntry>
+          <name>DEPLOY_KEY</name>
+          <value>{AQAAABAAAABQ66gXlMvdtx6bgnSlKzS7SZX00OVHpdWg/nL3/Q7sxEcf1jb3jbdRZ2kOKUMZUc2SB9INCiuzewqdIYqDlN/bXJxsKFMyx8L2hadJ16PPFjdElZF/NRTpoV9u75IyNVZy}</value>
+        </EnvInjectPasswordEntry>
+      </passwordEntries>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>

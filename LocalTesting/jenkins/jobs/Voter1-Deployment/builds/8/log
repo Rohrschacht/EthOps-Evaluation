@@ -1,0 +1,32 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Deployment
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Voter1-Deployment/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter1-Deployment] $ /bin/sh -xe /tmp/CommandInterpreterCondition10962599933180761887.sh
++ set -e
++ rm -f packages/augur-core/src/libraries/ContractDeployer.ts
++ git clone /home/tobias/sandbox/augur-voter1-deployment packages/augur-deployment
+fatal: destination path 'packages/augur-deployment' already exists and is not an empty directory.
+Run condition [Execute Shell] preventing perform for step [BuilderChain]
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] enabling perform for step [EthOps: voting]
+Getting givencontract address from environment
+Contract address: 0x5690bfD8fd272427dD23Cc2c819844d8d9B5e8ab
+Finished: SUCCESS

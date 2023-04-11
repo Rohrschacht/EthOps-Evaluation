@@ -1,0 +1,34 @@
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{ |l|r|r|r|r| }
+\hline
+\multicolumn{1}{|>{\centering\arraybackslash}l|}{Method} & \multicolumn{1}{|>{\centering\arraybackslash}l|}{Min} & \multicolumn{1}{|>{\centering\arraybackslash}l|}{Max} & \multicolumn{1}{|>{\centering\arraybackslash}l|}{Avg} & \multicolumn{1}{|>{\centering\arraybackslash}l|}{\# of calls} \\ 
+\hline
+createDeploymentProposal & 49019 & 54802 & 54276 & 22 \\ 
+\hline
+createRoleBindingQuorumProposal & 50595 & 76672 & 72947 & 14 \\ 
+\hline
+createVersionProposal & 48743 & 54457 & 54171 & 40 \\ 
+\hline
+createVersionQuorumProposal & 50613 & 76695 & 72348 & 12 \\ 
+\hline
+nominateVoter & - & - & 54887 & 16 \\ 
+\hline
+releaseVoter & 54874 & 54886 & 54882 & 12 \\ 
+\hline
+triggerDeploymentProposalCheck & 26818 & 72308 & 48940 & 6 \\ 
+\hline
+triggerVersionProposalCheck & 26581 & 42135 & 35729 & 6 \\ 
+\hline
+voteDeploymentProposal & 75350 & 106514 & 95213 & 34 \\ 
+\hline
+voteQuorumProposal & 69844 & 101603 & 86341 & 42 \\ 
+\hline
+voteRoleBindingProposal & 75454 & 106618 & 94427 & 44 \\ 
+\hline
+voteVersionProposal & 73165 & 105346 & 86856 & 92 \\ 
+\hline
+\end{tabular}
+\caption{Gas cost evaluation per method}
+\label{tab:gas_cost}
+\end{table}

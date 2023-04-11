@@ -1,0 +1,69 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>file:///home/tobias/sandbox/augur</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/sim-dep-env</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <io.jenkins.plugins.dapps.DappMainBuilder plugin="EthOps@1.0-SNAPSHOT">
+      <credentialsId>ganache-first</credentialsId>
+      <operationType>versionProposal</operationType>
+      <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+      <webhookTargets>http://localhost:8080/generic-webhook-trigger/invoke</webhookTargets>
+    </io.jenkins.plugins.dapps.DappMainBuilder>
+    <hudson.tasks.Shell>
+      <command>set -e
+python3.8 -m venv venv
+yarn
+make build-contracts
+yarn tools flash --key ${DEPLOY_KEY} deploy</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.892.v25453b_80e595">
+      <info>
+        <propertiesFilePath>packages/augur-tools/contract_address.env</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <io.jenkins.plugins.dapps.DappMainBuilder plugin="EthOps@1.0-SNAPSHOT">
+      <credentialsId>ganache-first</credentialsId>
+      <operationType>deploymentProposal</operationType>
+      <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+      <webhookTargets>http://localhost:8080/generic-webhook-trigger/invoke</webhookTargets>
+    </io.jenkins.plugins.dapps.DappMainBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <EnvInjectPasswordWrapper plugin="envinject@2.892.v25453b_80e595">
+      <injectGlobalPasswords>true</injectGlobalPasswords>
+      <maskPasswordParameters>true</maskPasswordParameters>
+      <passwordEntries>
+        <EnvInjectPasswordEntry>
+          <name>DEPLOY_KEY</name>
+          <value>{AQAAABAAAABQV4SR0WxqF+FgP3fJ0XEDRSRozdXNhdrVMaqH22FnCs4YNCQysf/thnvVb2t89vT08JoB+FUnCtzOmUyifFoHUCYOQt1VSfriQeiLUfes/nfL37lrZUjkfyUJf+biWxGd}</value>
+        </EnvInjectPasswordEntry>
+      </passwordEntries>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>

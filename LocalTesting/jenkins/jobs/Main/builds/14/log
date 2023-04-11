@@ -1,0 +1,29 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/sim-dep-env^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (refs/remotes/origin/sim-dep-env)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+Getting commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+Calling webhook URL: http://localhost:8080/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+OK
+Checking if VersionProposal is accepted or rejected
+Build was aborted
+Aborted by [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

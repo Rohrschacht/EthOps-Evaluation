@@ -1,0 +1,4 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<io.jenkins.plugins.dapps.NodeConfiguration plugin="EthOps@1.0-SNAPSHOT">
+  <nodeUrl>http://10.0.0.12:8545</nodeUrl>
+</io.jenkins.plugins.dapps.NodeConfiguration>

@@ -1,0 +1,100 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@5.0.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/Rohrschacht/augur-main</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>${GIVEN_GIT_COMMIT}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.86.2">
+      <spec></spec>
+      <regexpFilterText>${VOTING_TYPE}</regexpFilterText>
+      <regexpFilterExpression>version</regexpFilterExpression>
+      <genericRequestVariables>
+        <org.jenkinsci.plugins.gwt.GenericRequestVariable>
+          <key>GIVEN_GIT_COMMIT</key>
+          <regexpFilter></regexpFilter>
+        </org.jenkinsci.plugins.gwt.GenericRequestVariable>
+        <org.jenkinsci.plugins.gwt.GenericRequestVariable>
+          <key>VOTING_TYPE</key>
+          <regexpFilter></regexpFilter>
+        </org.jenkinsci.plugins.gwt.GenericRequestVariable>
+      </genericRequestVariables>
+      <printPostContent>false</printPostContent>
+      <printContributedVariables>false</printContributedVariables>
+      <causeString>Generic Cause</causeString>
+      <token>0x9611075f14efec782533a711e07bbee564550aa2</token>
+      <tokenCredentialId></tokenCredentialId>
+      <silentResponse>false</silentResponse>
+      <overrideQuietPeriod>false</overrideQuietPeriod>
+      <shouldNotFlattern>false</shouldNotFlattern>
+      <allowSeveralTriggersPerBuild>false</allowSeveralTriggersPerBuild>
+    </org.jenkinsci.plugins.gwt.GenericTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.conditionalbuildstep.ConditionalBuilder plugin="conditional-buildstep@1.4.2">
+      <runner class="org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail" plugin="run-condition@1.5"/>
+      <runCondition class="org.jenkins_ci.plugins.run_condition.contributed.ShellCondition" plugin="run-condition@1.5">
+        <command>set -e
+rm -rf packages/augur-test
+git clone https://github.com/Rohrschacht/augur-voter-tests packages/augur-test
+make test</command>
+      </runCondition>
+      <conditionalbuilders>
+        <io.jenkins.plugins.dapps.DappVoterBuilder plugin="EthOps@1.0-SNAPSHOT">
+          <credentialsId>ganache-sixth</credentialsId>
+          <operationType>versionProposal</operationType>
+          <accept>true</accept>
+          <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+        </io.jenkins.plugins.dapps.DappVoterBuilder>
+        <EnvInjectBuilder plugin="envinject@2.901.v0038b_6471582">
+          <info>
+            <propertiesContent>SUCCESS=true</propertiesContent>
+          </info>
+        </EnvInjectBuilder>
+      </conditionalbuilders>
+    </org.jenkinsci.plugins.conditionalbuildstep.ConditionalBuilder>
+    <org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder plugin="conditional-buildstep@1.4.2">
+      <condition class="org.jenkins_ci.plugins.run_condition.logic.Not" plugin="run-condition@1.5">
+        <condition class="org.jenkins_ci.plugins.run_condition.core.VariableExistsCondition">
+          <variableName>SUCCESS</variableName>
+        </condition>
+      </condition>
+      <buildStep class="io.jenkins.plugins.dapps.DappVoterBuilder" plugin="EthOps@1.0-SNAPSHOT">
+        <credentialsId>ganache-sixth</credentialsId>
+        <operationType>versionProposal</operationType>
+        <accept>false</accept>
+        <contractAddress>0x9611075f14efec782533a711e07bbee564550aa2</contractAddress>
+      </buildStep>
+      <runner class="org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail" plugin="run-condition@1.5"/>
+    </org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.45">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: TODO Plugin
+Specification-Version: 1.0
+Implementation-Title: TODO Plugin
+Implementation-Version: 1.0-SNAPSHOT
+Group-Id: io.jenkins.plugins
+Short-Name: dappMaster
+Long-Name: TODO Plugin
+Url: https://github.com/jenkinsci/dappMaster-plugin
+Plugin-Version: 1.0-SNAPSHOT (private-01/13/2023 01:44-tobias)
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Dependencies: structs:324.va_f5d6774f3a_d
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/dappMaster-plugin
+

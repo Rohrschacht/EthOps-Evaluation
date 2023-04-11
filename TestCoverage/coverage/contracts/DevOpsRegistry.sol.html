@@ -1,0 +1,1712 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/DevOpsRegistry.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> DevOpsRegistry.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>122/122</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>166/166</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>37/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>196/196</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">231×</span>
+<span class="cline-any cline-yes">231×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">229×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-yes">684×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-yes">228×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">167×</span>
+<span class="cline-any cline-yes">155×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">185×</span>
+<span class="cline-any cline-yes">185×</span>
+<span class="cline-any cline-yes">181×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">73×</span>
+<span class="cline-any cline-yes">73×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: GPL-3.0
+&nbsp;
+pragma solidity &gt;=0.7.0 &lt;0.9.0;
+&nbsp;
+/** 
+ * @title DevOpsRegistry
+ * @dev Implements voting process
+ */
+contract DevOpsRegistry {
+    event NominateVoter(address nominee);
+    event ReleaseVoter(address releasee);
+    event VersionProposalCreated(bytes20 proposal);
+    event DeploymentProposalCreated(address proposal);
+    event VersionQuorumProposalCreated(uint newVersionQuorum);
+    event RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum);
+    event RoleBindingVoteCast(address voter, address subject, bool accepted);
+    event VersionVoteCast(address voter, bytes20 proposal, bool accepted);
+    event DeploymentVoteCast(address voter, address proposal, bool accepted);
+    event QuorumVoteCast(address voter, bool accepted);
+    event RoleBindingAccepted(address subject);
+    event RoleBindingRejected(address subject);
+    event VersionAccepted(bytes20 subject);
+    event VersionRejected(bytes20 subject);
+    event DeploymentAccepted(address subject);
+    event DeploymentRejected(address subject);
+    event QuorumAccepted();
+    event QuorumRejected();
+&nbsp;
+    enum ProposalState {
+        INACTIVE,
+        ACTIVE,
+        ACCEPTED,
+        REJECTED
+    }
+&nbsp;
+    struct VersionProposal {
+        ProposalState state;
+        address[] voters;
+        uint numberOfPositiveVoters;
+        uint numberOfNegativeVoters;
+    }
+&nbsp;
+    struct DeploymentProposal {
+        ProposalState state;
+        address[] voters;
+        uint numberOfPositiveVoters;
+        uint numberOfNegativeVoters;
+    }
+&nbsp;
+    enum RoleBindingState {
+        INACTIVE,
+        NOMINATION,
+        RELEASE,
+        ACCEPTED,
+        REJECTED
+    }
+&nbsp;
+    struct RoleBindingProposal {
+        RoleBindingState state;
+        address[] voters;
+        uint numberOfPositiveVoters;
+        uint numberOfNegativeVoters;
+    }
+&nbsp;
+    enum QuorumState {
+        INACTIVE,
+        VERSION,
+        ROLEBINDING,
+        ACCEPTED,
+        REJECTED
+    }
+&nbsp;
+    struct QuorumProposal {
+        QuorumState state;
+        uint newQuorum;
+        address[] voters;
+        uint numberOfPositiveVoters;
+        uint numberOfNegativeVoters;
+    }
+&nbsp;
+    address public mainPipeline;
+&nbsp;
+    mapping(address =&gt; bool) public voters;
+    uint numberOfVoters;
+&nbsp;
+    mapping(bytes20 =&gt; VersionProposal) versionProposals;
+    mapping(address =&gt; DeploymentProposal) deploymentProposals;
+    mapping(address =&gt; RoleBindingProposal) roleBindingProposals;
+    QuorumProposal quorumProposal;
+&nbsp;
+    uint versionQuorum;
+    uint roleBindingQuorum;
+&nbsp;
+    address public applicationContract;
+&nbsp;
+    /** 
+     * @dev Create a new DevOpsRegistry with some initial voters and an initial quorum
+     * @param initialVoters addresses of the initially allowed voters
+     * @param initialVersionQuorum initial required quorum for the version and deployment voting processes
+     * @param initialRoleBindingQuorum initial required quorum for the role binding voting processes
+     */
+    constructor(address[] memory initialVoters, uint initialVersionQuorum, uint initialRoleBindingQuorum) {
+        mainPipeline = msg.sender;
+        if (initialVersionQuorum &gt; 100) {
+            revert("Initial quorum should be between 0 and 100");
+        }
+        if (initialRoleBindingQuorum &gt; 100) {
+            revert("Initial quorum should be between 0 and 100");
+        }
+        versionQuorum = initialVersionQuorum;
+        roleBindingQuorum = initialRoleBindingQuorum;
+        numberOfVoters = initialVoters.length;
+&nbsp;
+        for (uint i = 0; i &lt; initialVoters.length; i++) {
+            voters[initialVoters[i]] = true;
+        }
+&nbsp;
+        quorumProposal.state = QuorumState.INACTIVE;
+        quorumProposal.numberOfPositiveVoters = 0;
+        quorumProposal.numberOfNegativeVoters = 0;
+    }
+&nbsp;
+    // modifier to check if caller is the main pipeline
+    modifier isMainPipeline() {
+        require(msg.sender == mainPipeline, "Caller is not registered as the main pipeline");
+        _;
+    }
+&nbsp;
+    // modifier to check if caller is a voter
+    modifier isVoter() {
+        require(voters[msg.sender], "Caller is not amongst the voters");
+        _;
+    }
+&nbsp;
+    // modifier to check if a VersionProposal with this name exists
+    modifier vpExists(bytes20 name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        require(versionProposal.state != ProposalState.INACTIVE, "This VersionProposal has not been initialized");
+        _;
+    }
+&nbsp;
+    // modifier to check if a VersionProposal with this name is not currently active
+    modifier vpUnique(bytes20 name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        require(versionProposal.state != ProposalState.ACTIVE, "VersionProposal already exists");
+        _;
+    }
+&nbsp;
+    // modifier to check that the caller has not voted on this VersionProposal yet
+    modifier vpHasNotVoted(bytes20 name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        for (uint i = 0; i &lt; versionProposal.voters.length; i++) {
+            require(versionProposal.voters[i] != msg.sender, "You have already voted on this VersionProposal");
+        }
+        _;
+    }
+&nbsp;
+    // modifier to check that a RoleBindingProposal for this candidate exists
+    modifier rbpExists(address candidate) {
+        RoleBindingProposal storage roleBindingProposal = roleBindingProposals[candidate];
+        require(roleBindingProposal.state != RoleBindingState.INACTIVE, "This RoleBindingProposal does not exist");
+        _;
+    }
+&nbsp;
+    // modifier to check that a RoleBindingProposal for this candidate is not currently active
+    modifier rbpUnique(address candidate) {
+        require(roleBindingProposals[candidate].state == RoleBindingState.INACTIVE, "RoleBindingProposal with that address already exists");
+        _;
+    }
+&nbsp;
+    // modifier to check that the caller has not voted on this RoleBindingProposal yet
+    modifier rbpNotVoted(address candidate) {
+        RoleBindingProposal storage proposal = roleBindingProposals[candidate];
+        for (uint i = 0; i &lt; proposal.voters.length; i++) {
+            require(proposal.voters[i] != msg.sender, "You have already voted on this RoleBindingProposal");
+        }
+        _;
+    }
+&nbsp;
+    // modifier to check that a DeploymentProposal for this address exists
+    modifier dpExists(address newDeployment) {
+        DeploymentProposal storage deploymentProposal = deploymentProposals[newDeployment];
+        require(deploymentProposal.state != ProposalState.INACTIVE, "This DeploymentProposal has not been initialized");
+        _;
+    }
+&nbsp;
+    // modifier to check that a DeploymentProposal for this address is not currently active
+    modifier dpUnique(address newDeployment) {
+        DeploymentProposal storage deploymentProposal = deploymentProposals[newDeployment];
+        require(deploymentProposal.state != ProposalState.ACTIVE, "DeploymentProposal already exists");
+        _;
+    }
+&nbsp;
+    // modifier to check that the caller has not voted on this DeploymentProposal yet
+    modifier dpNotVoted(address newDeployment) {
+        DeploymentProposal storage proposal = deploymentProposals[newDeployment];
+        for (uint i = 0; i &lt; proposal.voters.length; i++) {
+            require(proposal.voters[i] != msg.sender, "You have already voted on this DeploymentProposal");
+        }
+        _;
+    }
+&nbsp;
+    // modifier to check that a quorum proposal exists
+    modifier qpExists() {
+        require(quorumProposal.state != QuorumState.INACTIVE, "The quorum proposal is inactive");
+        _;
+    }
+&nbsp;
+    // modifier to check that a quorum proposal is currently active
+    modifier qpActive() {
+        require(quorumProposal.state == QuorumState.VERSION || quorumProposal.state == QuorumState.ROLEBINDING, "The quorum proposal is inactive");
+        _;
+    }
+&nbsp;
+    // modifier to check that a quorum proposal is not currently active
+    modifier qpUnique() {
+        require(!(quorumProposal.state == QuorumState.VERSION || quorumProposal.state == QuorumState.ROLEBINDING), "The quorum proposal is already active");
+        _;
+    }
+&nbsp;
+    // modifier to check that the caller has not voted on this quorum proposal yet
+    modifier qpNotVoted() {
+        for (uint i = 0; i &lt; quorumProposal.voters.length; i++) {
+            require(quorumProposal.voters[i] != msg.sender, "You have already voted on this quorum proposal");
+        }
+        _;
+    }
+&nbsp;
+    // modifier to check that the quorum is between 0 and 100
+    modifier quorumValid(uint quorum) {
+        require(quorum &lt;= 100, "quorum should be between 0 and 100");
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Give 'candidate' the right to vote. May only be called by voters.
+     * @param candidate address of new voting candidate
+     */
+    function nominateVoter(address candidate) public isVoter rbpUnique(candidate) {
+        RoleBindingProposal storage roleBindingProposal = roleBindingProposals[candidate];
+        roleBindingProposal.state = RoleBindingState.NOMINATION;
+        roleBindingProposal.numberOfPositiveVoters = 0;
+        roleBindingProposal.numberOfNegativeVoters = 0;
+        delete roleBindingProposal.voters;
+        emit NominateVoter(candidate);
+    }
+&nbsp;
+    /** 
+     * @dev Remove candidate's right to vote. May only be called by voters.
+     * @param candidate address of to-be-removed voter
+     */
+    function releaseVoter(address candidate) public isVoter rbpUnique(candidate) {
+        RoleBindingProposal storage roleBindingProposal = roleBindingProposals[candidate];
+        roleBindingProposal.state = RoleBindingState.RELEASE;
+        roleBindingProposal.numberOfPositiveVoters = 0;
+        roleBindingProposal.numberOfNegativeVoters = 0;
+        delete roleBindingProposal.voters;
+        emit ReleaseVoter(candidate);
+    }
+&nbsp;
+    /**
+     * @dev Create a VersionProposal. May only be called by the main pipeline.
+     * @param name name of the VersionProposal (Git commit hash)
+     */
+    function createVersionProposal(bytes20 name) public isMainPipeline vpUnique(name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        versionProposal.state = ProposalState.ACTIVE;
+        versionProposal.numberOfPositiveVoters = 0;
+        versionProposal.numberOfNegativeVoters = 0;
+        delete versionProposal.voters;
+        emit VersionProposalCreated(name);
+    }
+&nbsp;
+    /**
+     * @dev Create a DeploymentProposal. May only be called by the main pipeline.
+     * @param newDeployment address of the new deployment (replaces applicationContract when accepted)
+     */
+    function createDeploymentProposal(address newDeployment) public isMainPipeline dpUnique(newDeployment) {
+        DeploymentProposal storage deploymentProposal = deploymentProposals[newDeployment];
+        deploymentProposal.state = ProposalState.ACTIVE;
+        deploymentProposal.numberOfPositiveVoters = 0;
+        deploymentProposal.numberOfNegativeVoters = 0;
+        delete deploymentProposal.voters;
+        emit DeploymentProposalCreated(newDeployment);
+    }
+&nbsp;
+    /**
+     * @dev Create a version quorum proposal. May only be called by voters.
+     * @param quorum new quorum for version proposals
+     */
+    function createVersionQuorumProposal(uint quorum) public isVoter quorumValid(quorum) qpUnique {
+        quorumProposal.state = QuorumState.VERSION;
+        quorumProposal.newQuorum = quorum;
+        quorumProposal.numberOfPositiveVoters = 0;
+        quorumProposal.numberOfNegativeVoters = 0;
+        delete quorumProposal.voters;
+        emit VersionQuorumProposalCreated(quorum);
+    }
+&nbsp;
+    /**
+     * @dev Create a role binding quorum proposal. May only be called by voters.
+     * @param quorum new quorum for role binding proposals
+     */
+    function createRoleBindingQuorumProposal(uint quorum) public isVoter quorumValid(quorum) qpUnique {
+        quorumProposal.state = QuorumState.ROLEBINDING;
+        quorumProposal.newQuorum = quorum;
+        quorumProposal.numberOfPositiveVoters = 0;
+        quorumProposal.numberOfNegativeVoters = 0;
+        delete quorumProposal.voters;
+        emit RoleBindingQuorumProposalCreated(quorum);
+    }
+&nbsp;
+    /**
+     * @dev Give your vote to a VersionProposal with the given name
+     * @param name git commit hash to vote for
+     * @param accept indicates that you accept the proposal
+     */
+    function voteVersionProposal(bytes20 name, bool accept) public isVoter vpExists(name) vpHasNotVoted(name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        versionProposal.voters.push(msg.sender);
+        if (accept) {
+            versionProposal.numberOfPositiveVoters++;
+        } else {
+            versionProposal.numberOfNegativeVoters++;
+        }
+        emit VersionVoteCast(msg.sender, name, accept);
+&nbsp;
+        if (versionProposalAccepted(name)) {
+            versionProposal.state = ProposalState.ACCEPTED;
+            emit VersionAccepted(name);
+        } else if (versionProposalRejected(name)) {
+            versionProposal.state = ProposalState.REJECTED;
+            emit VersionRejected(name);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a VersionProposal: was it accepted?
+     * @param name git commit hash to check
+     */
+    function versionProposalAccepted(bytes20 name) public view vpExists(name) returns (bool) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        if (versionProposal.state == ProposalState.ACCEPTED) {
+            return true;
+        }
+        uint acceptanceRatio = (versionProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &gt;= versionQuorum;
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a VersionProposal: was it rejected?
+     * @param name git commit hash to check
+     */
+    function versionProposalRejected(bytes20 name) public view vpExists(name) returns (bool) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        if (versionProposal.state == ProposalState.REJECTED) {
+            return true;
+        }
+        uint rejectionRatio = (versionProposal.numberOfNegativeVoters * 100) / numberOfVoters;
+        return rejectionRatio &gt; (100 - versionQuorum);
+    }
+&nbsp;
+    /**
+     * @dev Trigger the acceptance/rejection of a VersionProposal after another operation may have changed the state of the proposal outside of the voting process.
+     * @param name git commit hash to check
+     */
+    function triggerVersionProposalCheck(bytes20 name) public isVoter vpExists(name) {
+        VersionProposal storage versionProposal = versionProposals[name];
+        if (versionProposal.state == ProposalState.ACTIVE) {
+            if (versionProposalAccepted(name) &amp;&amp; !versionProposalRejected(name)) {
+                versionProposals[name].state = ProposalState.ACCEPTED;
+                emit VersionAccepted(name);
+            } else {
+                versionProposals[name].state = ProposalState.REJECTED;
+                emit VersionRejected(name);
+            }
+        }
+    }
+&nbsp;
+    /**
+     * @dev Give your vote to a RoleBindingProposal for the given candidate
+     * @param candidate address of the candidate to vote for
+     * @param accept indicates that you accept the proposal
+     */
+    function voteRoleBindingProposal(address candidate, bool accept) public isVoter rbpExists(candidate) rbpNotVoted(candidate) {
+        RoleBindingProposal storage roleBindingProposal = roleBindingProposals[candidate];
+        roleBindingProposal.voters.push(msg.sender);
+        if (accept) {
+            roleBindingProposal.numberOfPositiveVoters++;
+        } else {
+            roleBindingProposal.numberOfNegativeVoters++;
+        }
+        emit RoleBindingVoteCast(msg.sender, candidate, accept);
+&nbsp;
+        if (roleBindingProposalAccepted(candidate)) {
+            if (roleBindingProposal.state == RoleBindingState.NOMINATION) {
+                voters[candidate] = true;
+                numberOfVoters++;
+            }
+            if (roleBindingProposal.state == RoleBindingState.RELEASE) {
+                voters[candidate] = false;
+                numberOfVoters--;
+            }
+            roleBindingProposal.state = RoleBindingState.ACCEPTED;
+            emit RoleBindingAccepted(candidate);
+        } else if (roleBindingProposalRejected(candidate)) {
+            roleBindingProposal.state = RoleBindingState.REJECTED;
+            emit RoleBindingRejected(candidate);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a RoleBindingProposal: was it accepted?
+     * @param candidate address of the candidate to check
+     */
+    function roleBindingProposalAccepted(address candidate) public view rbpExists(candidate) returns (bool) {
+        RoleBindingProposal memory roleBindingProposal = roleBindingProposals[candidate];
+        if (roleBindingProposal.state == RoleBindingState.ACCEPTED) {
+            return true;
+        }
+        uint acceptanceRatio = (roleBindingProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &gt;= roleBindingQuorum;
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a RoleBindingProposal: was it rejected?
+     * @param candidate address of the candidate to check
+     */
+    function roleBindingProposalRejected(address candidate) public view rbpExists(candidate) returns (bool) {
+        RoleBindingProposal memory roleBindingProposal = roleBindingProposals[candidate];
+        if (roleBindingProposal.state == RoleBindingState.REJECTED) {
+            return true;
+        }
+        uint acceptanceRatio = (roleBindingProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &lt; roleBindingQuorum &amp;&amp; roleBindingProposal.voters.length == numberOfVoters;
+    }
+&nbsp;
+    /**
+     * @dev Give your vote to the currently active QuorumProposal
+     * @param accept indicates that you accept the proposal
+     */
+    function voteQuorumProposal(bool accept) public isVoter qpActive qpNotVoted {
+        quorumProposal.voters.push(msg.sender);
+        if (accept) {
+            quorumProposal.numberOfPositiveVoters++;
+        } else {
+            quorumProposal.numberOfNegativeVoters++;
+        }
+        emit QuorumVoteCast(msg.sender, accept);
+&nbsp;
+        if (quorumProposalAccepted()) {
+            if (quorumProposal.state == QuorumState.VERSION) {
+                versionQuorum = quorumProposal.newQuorum;
+            }
+            if (quorumProposal.state == QuorumState.ROLEBINDING) {
+                roleBindingQuorum = quorumProposal.newQuorum;
+            }
+            quorumProposal.state = QuorumState.ACCEPTED;
+            emit QuorumAccepted();
+        } else if (quorumProposalRejected()) {
+            quorumProposal.state = QuorumState.REJECTED;
+            emit QuorumRejected();
+        }
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of the currently active QuorumProposal: was it accepted?
+     */
+    function quorumProposalAccepted() public view qpExists returns (bool) {
+        if (quorumProposal.state == QuorumState.ACCEPTED) {
+            return true;
+        }
+        uint acceptanceRatio = (quorumProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &gt;= roleBindingQuorum;
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of the currently active QuorumProposal: was it rejected?
+     */
+    function quorumProposalRejected() public view qpExists returns (bool) {
+        if (quorumProposal.state == QuorumState.REJECTED) {
+            return true;
+        }
+        uint acceptanceRatio = (quorumProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &lt; roleBindingQuorum &amp;&amp; quorumProposal.voters.length == numberOfVoters;
+    }
+&nbsp;
+    /**
+     * @dev Give your vote to a DeploymentProposal for the given newly deployed contract address
+     * @param newDeployment address of the newly deployed contract
+     * @param accept indicates that you accept the proposal
+     */
+    function voteDeploymentProposal(address newDeployment, bool accept) public isVoter dpExists(newDeployment) dpNotVoted(newDeployment) {
+        DeploymentProposal storage deploymentProposal = deploymentProposals[newDeployment];
+        deploymentProposal.voters.push(msg.sender);
+        if (accept) {
+            deploymentProposal.numberOfPositiveVoters++;
+        } else {
+            deploymentProposal.numberOfNegativeVoters++;
+        }
+        emit DeploymentVoteCast(msg.sender, newDeployment, accept);
+&nbsp;
+        if (deploymentProposalAccepted(newDeployment)) {
+            applicationContract = newDeployment;
+            deploymentProposal.state = ProposalState.ACCEPTED;
+            emit DeploymentAccepted(newDeployment);
+        } else if (deploymentProposalRejected(newDeployment)) {
+            deploymentProposal.state = ProposalState.REJECTED;
+            emit DeploymentRejected(newDeployment);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a DeploymentProposal: was it accepted?
+     * @param newDeployment address of the newly deployed contract to check
+     */
+    function deploymentProposalAccepted(address newDeployment) public view dpExists(newDeployment) returns (bool) {
+        DeploymentProposal memory deploymentProposal = deploymentProposals[newDeployment];
+        uint acceptanceRatio = (deploymentProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &gt;= roleBindingQuorum;
+    }
+&nbsp;
+    /**
+     * @dev Public view into the state of a DeploymentProposal: was it rejected?
+     * @param newDeployment address of the newly deployed contract to check
+     */
+    function deploymentProposalRejected(address newDeployment) public view dpExists(newDeployment) returns (bool) {
+        DeploymentProposal memory deploymentProposal = deploymentProposals[newDeployment];
+        uint acceptanceRatio = (deploymentProposal.numberOfPositiveVoters * 100) / numberOfVoters;
+        return acceptanceRatio &lt; roleBindingQuorum &amp;&amp; deploymentProposal.voters.length == numberOfVoters;
+    }
+&nbsp;
+    /**
+     * @dev Trigger the acceptance/rejection of a DeploymentProposal after another operation may have changed the state of the proposal outside of the voting process.
+     * @param newDeployment address of the newly deployed contract
+     */
+    function triggerDeploymentProposalCheck(address newDeployment) public isVoter dpExists(newDeployment) {
+        DeploymentProposal storage deploymentProposal = deploymentProposals[newDeployment];
+        if (deploymentProposal.state == ProposalState.ACTIVE) {
+            if (deploymentProposalAccepted(newDeployment) &amp;&amp; !deploymentProposalRejected(newDeployment)) {
+                applicationContract = newDeployment;
+                deploymentProposals[newDeployment].state = ProposalState.ACCEPTED;
+                emit DeploymentAccepted(newDeployment);
+            } else {
+                deploymentProposals[newDeployment].state = ProposalState.REJECTED;
+                emit DeploymentRejected(newDeployment);
+            }
+        }
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2023 01:39:58 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

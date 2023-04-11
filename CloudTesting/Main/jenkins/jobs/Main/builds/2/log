@@ -1,0 +1,38 @@
+Started by user [8mha:////4EKLiK9L02CLAFVLIi2uMkgO/FG7K+QuX6VRSRmkvO5zAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/ubuntu/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/ubuntu/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Rohrschacht/augur-main # timeout=10
+Fetching upstream changes from https://github.com/Rohrschacht/augur-main
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Rohrschacht/augur-main +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/sim-dep-env^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (refs/remotes/origin/sim-dep-env)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+First time build. Skipping changelog.
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+Getting commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+Calling webhook URL: http://10.0.0.6/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Calling webhook URL: http://10.1.0.9/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Calling webhook URL: http://10.2.0.4/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Calling webhook URL: http://10.3.0.7/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Calling webhook URL: http://10.4.0.6/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Build was aborted
+Finished: ABORTED

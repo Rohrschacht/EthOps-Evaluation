@@ -1,0 +1,15 @@
+[all:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/galileo.pem
+
+[ganache]
+3.125.43.15
+
+[jenkins]
+3.70.54.86
+3.71.39.64
+34.253.36.95
+3.8.1.217
+15.188.146.14
+16.170.173.29
+

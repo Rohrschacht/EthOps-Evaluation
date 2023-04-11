@@ -1,0 +1,53 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <org.jenkinsci.plugins.gwt.GenericCause plugin="generic-webhook-trigger@1.86.2">
+            <resolvedVariables class="tree-map">
+              <entry>
+                <string>GIVEN_GIT_COMMIT</string>
+                <string>1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6</string>
+              </entry>
+              <entry>
+                <string>GIVEN_GIT_COMMIT_0</string>
+                <string>1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6</string>
+              </entry>
+            </resolvedVariables>
+            <postContent></postContent>
+            <printContributedVariables>false</printContributedVariables>
+            <printPostContent>false</printPostContent>
+            <cause>Generic Cause</cause>
+          </org.jenkinsci.plugins.gwt.GenericCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>jenkins-generic-webhook-trigger-plugin_uuid</name>
+          <value>cad727d9-06b3-492a-8559-81efbd5e8260</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames class="empty-list"/>
+    </hudson.model.ParametersAction>
+    <org.jenkinsci.plugins.envinject.EnvInjectPluginAction plugin="envinject@2.892.v25453b_80e595"/>
+  </actions>
+  <queueId>33</queueId>
+  <timestamp>1678384017048</timestamp>
+  <startTime>1678384017063</startTime>
+  <result>FAILURE</result>
+  <duration>35464</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/home/tobias/.jenkins/workspace/Voter1-Deployment</workspace>
+  <hudsonVersion>2.375.2</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="java.util.Collections$UnmodifiableSet">
+    <c class="sorted-set"/>
+  </culprits>
+</build>

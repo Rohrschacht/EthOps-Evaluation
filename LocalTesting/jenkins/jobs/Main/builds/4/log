@@ -1,0 +1,17 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dev-env^{commit} # timeout=10
+ > git rev-parse origin/dev-env^{commit} # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE

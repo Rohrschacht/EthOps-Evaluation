@@ -1,0 +1,1359 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Version
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository file:///home/tobias/sandbox/augur
+ > git init /home/tobias/.jenkins/workspace/Voter1-Version # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/v-test^{commit} # timeout=10
+Checking out Revision 66d5677b05b6609e414fca0b42cca1ddb0ded244 (refs/remotes/origin/v-test)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 66d5677b05b6609e414fca0b42cca1ddb0ded244 # timeout=10
+Commit message: "remove tests, only good remain"
+ > git rev-list --no-walk 66d5677b05b6609e414fca0b42cca1ddb0ded244 # timeout=10
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter1-Version] $ /bin/sh -xe /tmp/CommandInterpreterCondition5671918750184894055.sh
++ make test
+yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+[3/5] Fetching packages...
+warning Pattern ["concat-stream@github:hugomrdias/concat-stream#feat/smaller"] is trying to unpack in the same destination "/home/tobias/.cache/yarn/v6/npm-concat-stream-2.0.0/node_modules/concat-stream" as pattern ["concat-stream@^2.0.0"]. This could result in non-deterministic behavior, skipping.
+[4/5] Linking dependencies...
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "go-ipfs-dep@*".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs@*".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs-http-client@*".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/tools > @openzeppelin/gsn-helpers@0.2.3" has unmet peer dependency "chai@^4.2.0".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/ui > @toruslabs/torus-embed@1.7.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/ui > react-router-sitemap@1.2.0" has unmet peer dependency "react-router@^2.3.0 || ^3.2.1 || ^4.3.0".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/sdk > @augurproject/indexeddbshim > typeson@5.18.2" has unmet peer dependency "core-js-bundle@^3.6.4".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/fetch-node-details@2.3.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/torus.js@2.2.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/ui > enzyme-adapter-react-16 > react-test-renderer@16.13.1" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-0efa62c8-28b7-4c3a-8529-0ec0b60aa400 > @augurproject/sdk > @augurproject/indexeddbshim > typeson-registry > base64-arraybuffer-es6@0.5.0" has unmet peer dependency "core-js-bundle@^3.1.3".
+[5/5] Building fresh packages...
+Done in 76.80s.
+yarn build
+yarn run v1.22.19
+$ tsc -b
+Done in 28.82s.
+yarn test
+yarn run v1.22.19
+$ jest
+PASS packages/augur-test/src/tests/state/getter/CrossOrderbook.test.ts (12.907s)
+PASS packages/augur-sdk/src/state/sync/BlockAndLogStreamerSyncStrategy.test.ts (9.128s)
+(node:692) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:707) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:711) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:672) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:685) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:700) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+(node:678) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+PASS packages/augur-sdk/src/state/logs/LogFilterAggregator.test.ts (7.904s)
+PASS packages/augur-test/src/tests/state/getter/Liquidity.test.ts (73.584s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.info packages/augur-utils/build/logger/StandardLogger.js:14
+      Syncing ZeroX Orders
+    console.info packages/augur-utils/build/logger/StandardLogger.js:14
+      Synced 0 Orders from ZeroX Peers
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 183
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-183: 486ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+
+PASS packages/augur-sdk/src/state/db/ZeroXOrders.test.ts
+PASS packages/augur-test/src/tests/state/getter/MarketSort.test.ts (123.128s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.info packages/augur-utils/build/logger/StandardLogger.js:14
+      Syncing ZeroX Orders
+    console.info packages/augur-utils/build/logger/StandardLogger.js:14
+      Synced 0 Orders from ZeroX Peers
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 183
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-183: 437ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+    console.log packages/augur-sdk/build/api/ZeroX.js:144
+      []Logged orders
+    console.log packages/augur-sdk/build/api/ZeroX.js:69
+      Got OrderEvents:  1
+
+PASS packages/augur-sdk/src/state/sync/BulkSyncStrategy.test.ts (8.652s)
+  ● Console
+
+    console.log packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:26
+      Syncing from 0 to 39
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      0-0: 1ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      1-1: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      2-2: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      3-3: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      4-4: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      5-5: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      6-6: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      7-7: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      8-8: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      9-9: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      10-10: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      11-11: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      12-12: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      13-13: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      14-14: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      15-15: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      16-16: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      17-17: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      18-18: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      19-19: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      20-20: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      21-21: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      22-22: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      23-23: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      24-24: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      25-25: 1ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      26-26: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      27-27: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      28-28: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      29-29: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      30-30: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      31-31: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      32-32: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      33-33: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      34-34: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      35-35: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      36-36: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      37-37: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      38-38: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      39-39: 0ms
+    console.log packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:26
+      Syncing from 10 to 30
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      10-14: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      15-19: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      20-24: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      25-29: 0ms
+    console.time packages/augur-sdk/src/state/sync/BulkSyncStrategy.ts:39
+      30-30: 0ms
+
+PASS packages/augur-sdk/src/api/ContractEvents.test.ts
+PASS packages/augur-test/src/tests/state/getter/AccountsGetRepStakeSummary.test.ts (156.393s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 192
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-192: 398ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  16   │
+      │    1    │  'getTransactionCount'  │   2   │
+      │    2    │      'getGasPrice'      │  34   │
+      │    3    │        'getCode'        │   6   │
+      │    4    │         'call'          │  42   │
+      │    5    │      'getBalance'       │  36   │
+      │    6    │      'estimateGas'      │  52   │
+      │    7    │    'sendTransaction'    │  26   │
+      │    8    │ 'getTransactionReceipt' │  25   │
+      │    9    │       'getBlock'        │   2   │
+      │   10    │        'getLogs'        │   1   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+
+PASS packages/augur-test/src/tests/state/getter/Router.test.ts (51.59s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+
+PASS packages/augur-test/src/tests/state/getter/MarketsDisputeInfo.test.ts (102.749s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 199
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-199: 434ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+
+PASS packages/ethersjs-provider/src/utils.test.ts
+(node:711) V8: /home/tobias/.jenkins/workspace/Voter1-Version/node_modules/rustbn.js/lib/index.asm.js:2 Linking failure in asm.js: Unexpected stdlib member
+PASS packages/augur-sdk/src/connector/http-connector.test.ts (10.843s)
+PASS packages/augur-test/src/tests/state/getter/sync-data.test.ts (52.869s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/getter/status.js:21
+      getting highest sync block
+    console.log packages/augur-sdk/build/state/getter/status.js:23
+      done getting highest sync block
+
+PASS packages/augur-test/src/tests/state/getter/OnChainTrading.test.ts (288.268s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │  'getTransactionCount'  │   2   │
+      │    2    │      'getGasPrice'      │  29   │
+      │    3    │        'getCode'        │   6   │
+      │    4    │         'call'          │  36   │
+      │    5    │      'getBalance'       │  31   │
+      │    6    │      'estimateGas'      │  42   │
+      │    7    │    'sendTransaction'    │  20   │
+      │    8    │ 'getTransactionReceipt' │  20   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │    'sendTransaction'    │   3   │
+      │    2    │         'call'          │   8   │
+      │    3    │ 'getTransactionReceipt' │   3   │
+      │    4    │      'getBalance'       │   7   │
+      │    5    │      'estimateGas'      │   6   │
+      │    6    │      'getGasPrice'      │   7   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 200
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-200: 582ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  22   │
+      │    1    │      'getGasPrice'      │  18   │
+      │    2    │    'sendTransaction'    │  11   │
+      │    3    │         'call'          │  25   │
+      │    4    │ 'getTransactionReceipt' │  10   │
+      │    5    │      'getBalance'       │  14   │
+      │    6    │      'estimateGas'      │  20   │
+      │    7    │       'getBlock'        │  15   │
+      │    8    │        'getLogs'        │   7   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+
+PASS packages/augur-test/src/tests/state/getter/markets/disavowed-in-fork.test.ts (237.774s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  42   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  62   │
+      │    5    │      'getBalance'       │  45   │
+      │    6    │      'estimateGas'      │  60   │
+      │    7    │    'sendTransaction'    │  30   │
+      │    8    │ 'getTransactionReceipt' │  29   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 205
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-205: 440ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │ 'getTransactionReceipt' │   1   │
+      │    1    │      'getBalance'       │  18   │
+      │    2    │         'call'          │  35   │
+      │    3    │    'getBlockNumber'     │  15   │
+      │    4    │      'getGasPrice'      │  12   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  16   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  41   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  77   │
+      │    5    │      'getBalance'       │  48   │
+      │    6    │       'getBlock'        │   2   │
+      │    7    │        'getLogs'        │   1   │
+      │    8    │      'estimateGas'      │  59   │
+      │    9    │    'sendTransaction'    │  29   │
+      │   10    │ 'getTransactionReceipt' │  29   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  36   │
+      │    1    │   'getBalance'   │  18   │
+      │    2    │  'getGasPrice'   │  12   │
+      │    3    │ 'getBlockNumber' │  15   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │      'getGasPrice'      │  39   │
+      │    1    │      'estimateGas'      │  53   │
+      │    2    │    'getBlockNumber'     │  46   │
+      │    3    │    'sendTransaction'    │  27   │
+      │    4    │ 'getTransactionReceipt' │  27   │
+      │    5    │         'call'          │  123  │
+      │    6    │      'getBalance'       │  41   │
+      │    7    │       'getBlock'        │  65   │
+      │    8    │        'getLogs'        │  33   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+
+PASS packages/augur-test/src/tests/state/getter/Accounts.test.ts (412.351s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 193
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-193: 497ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  16   │
+      │    1    │  'getTransactionCount'  │   2   │
+      │    2    │      'getGasPrice'      │  35   │
+      │    3    │        'getCode'        │   6   │
+      │    4    │         'call'          │  47   │
+      │    5    │      'getBalance'       │  38   │
+      │    6    │      'estimateGas'      │  55   │
+      │    7    │    'sendTransaction'    │  27   │
+      │    8    │ 'getTransactionReceipt' │  27   │
+      │    9    │       'getBlock'        │   2   │
+      │   10    │        'getLogs'        │   1   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │      'getGasPrice'      │  20   │
+      │    1    │      'estimateGas'      │  24   │
+      │    2    │    'sendTransaction'    │  12   │
+      │    3    │ 'getTransactionReceipt' │  12   │
+      │    4    │         'call'          │  56   │
+      │    5    │      'getBalance'       │  18   │
+      │    6    │    'getBlockNumber'     │  32   │
+      │    7    │       'getBlock'        │  37   │
+      │    8    │        'getLogs'        │  18   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │      'getGasPrice'      │  10   │
+      │    2    │         'call'          │  10   │
+      │    3    │      'estimateGas'      │   7   │
+      │    4    │      'getBalance'       │   7   │
+      │    5    │    'sendTransaction'    │   3   │
+      │    6    │ 'getTransactionReceipt' │   3   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │    'sendTransaction'    │   5   │
+      │    2    │         'call'          │  16   │
+      │    3    │ 'getTransactionReceipt' │   5   │
+      │    4    │      'getBalance'       │   9   │
+      │    5    │      'estimateGas'      │   9   │
+      │    6    │      'getGasPrice'      │  10   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  32   │
+      │    1    │      'getGasPrice'      │  18   │
+      │    2    │         'call'          │  59   │
+      │    3    │      'estimateGas'      │  23   │
+      │    4    │      'getBalance'       │  17   │
+      │    5    │    'sendTransaction'    │  11   │
+      │    6    │ 'getTransactionReceipt' │  11   │
+      │    7    │       'getBlock'        │  37   │
+      │    8    │        'getLogs'        │  17   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+
+PASS packages/augur-test/src/tests/state/getter/Platform.test.ts (416.325s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │  'getTransactionCount'  │   2   │
+      │    2    │      'getGasPrice'      │  35   │
+      │    3    │        'getCode'        │   6   │
+      │    4    │         'call'          │  44   │
+      │    5    │      'getBalance'       │  37   │
+      │    6    │      'estimateGas'      │  54   │
+      │    7    │    'sendTransaction'    │  27   │
+      │    8    │ 'getTransactionReceipt' │  26   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │ 'getTransactionReceipt' │   6   │
+      │    1    │         'call'          │  18   │
+      │    2    │      'getBalance'       │  12   │
+      │    3    │      'estimateGas'      │  12   │
+      │    4    │      'getGasPrice'      │  14   │
+      │    5    │    'getBlockNumber'     │  15   │
+      │    6    │    'sendTransaction'    │   5   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │    'sendTransaction'    │   3   │
+      │    2    │         'call'          │  14   │
+      │    3    │ 'getTransactionReceipt' │   3   │
+      │    4    │      'getBalance'       │   7   │
+      │    5    │      'estimateGas'      │   6   │
+      │    6    │      'getGasPrice'      │   7   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │    'sendTransaction'    │   3   │
+      │    2    │         'call'          │  16   │
+      │    3    │ 'getTransactionReceipt' │   3   │
+      │    4    │      'getBalance'       │   7   │
+      │    5    │      'estimateGas'      │   5   │
+      │    6    │      'getGasPrice'      │   8   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 218
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-218: 646ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  16   │
+      │    1    │      'getGasPrice'      │  23   │
+      │    2    │         'call'          │  31   │
+      │    3    │      'estimateGas'      │  33   │
+      │    4    │      'getBalance'       │  22   │
+      │    5    │    'sendTransaction'    │  17   │
+      │    6    │ 'getTransactionReceipt' │  16   │
+      │    7    │       'getBlock'        │   2   │
+      │    8    │        'getLogs'        │   1   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │ 'getTransactionReceipt' │  44   │
+      │    1    │      'getBalance'       │  55   │
+      │    2    │      'estimateGas'      │  86   │
+      │    3    │      'getGasPrice'      │  51   │
+      │    4    │    'sendTransaction'    │  43   │
+      │    5    │         'call'          │  140  │
+      │    6    │    'getBlockNumber'     │  47   │
+      │    7    │       'getBlock'        │  66   │
+      │    8    │        'getLogs'        │  33   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+
+PASS packages/augur-test/src/tests/state/getter/Universe.test.ts (604.907s)
+  ● Console
+
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 193
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-193: 482ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  15   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  30   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  42   │
+      │    5    │      'getBalance'       │  36   │
+      │    6    │      'estimateGas'      │  36   │
+      │    7    │    'sendTransaction'    │  18   │
+      │    8    │ 'getTransactionReceipt' │  18   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  18   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  31   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  65   │
+      │    5    │      'getBalance'       │  35   │
+      │    6    │       'getBlock'        │   7   │
+      │    7    │        'getLogs'        │   3   │
+      │    8    │      'estimateGas'      │  39   │
+      │    9    │    'sendTransaction'    │  19   │
+      │   10    │ 'getTransactionReceipt' │  19   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │  'getGasPrice'   │  12   │
+      │    1    │ 'getBlockNumber' │  15   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │      'getGasPrice'      │  34   │
+      │    1    │      'estimateGas'      │  44   │
+      │    2    │    'getBlockNumber'     │  15   │
+      │    3    │    'sendTransaction'    │  22   │
+      │    4    │         'call'          │  57   │
+      │    5    │ 'getTransactionReceipt' │  22   │
+      │    6    │      'getBalance'       │  37   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │  'getGasPrice'   │  12   │
+      │    1    │ 'getBlockNumber' │  14   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │      'getGasPrice'      │  34   │
+      │    1    │      'estimateGas'      │  43   │
+      │    2    │    'getBlockNumber'     │  58   │
+      │    3    │    'sendTransaction'    │  22   │
+      │    4    │ 'getTransactionReceipt' │  22   │
+      │    5    │         'call'          │  136  │
+      │    6    │      'getBalance'       │  36   │
+      │    7    │       'getBlock'        │  87   │
+      │    8    │        'getLogs'        │  43   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 193
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-193: 246ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  15   │
+      │    1    │  'getGasPrice'   │  12   │
+      │    2    │      'call'      │  34   │
+      │    3    │   'getBalance'   │  17   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │    'getBlock'    │  58   │
+      │    1    │    'getLogs'     │  29   │
+      │    2    │      'call'      │  98   │
+      │    3    │ 'getBlockNumber' │  44   │
+      │    4    │   'getBalance'   │  18   │
+      │    5    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  18   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  42   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  83   │
+      │    5    │      'getBalance'       │  48   │
+      │    6    │       'getBlock'        │   7   │
+      │    7    │        'getLogs'        │   3   │
+      │    8    │      'estimateGas'      │  60   │
+      │    9    │    'sendTransaction'    │  29   │
+      │   10    │ 'getTransactionReceipt' │  29   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  34   │
+      │    1    │   'getBalance'   │  17   │
+      │    2    │ 'getBlockNumber' │  15   │
+      │    3    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  14   │
+      │    1    │      'call'      │  36   │
+      │    2    │   'getBalance'   │  18   │
+      │    3    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'sendTransaction'    │  32   │
+      │    1    │ 'getTransactionReceipt' │  32   │
+      │    2    │    'getBlockNumber'     │  15   │
+      │    3    │         'call'          │  65   │
+      │    4    │      'getBalance'       │  47   │
+      │    5    │      'estimateGas'      │  63   │
+      │    6    │      'getGasPrice'      │  43   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 193
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-193: 163ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  36   │
+      │    1    │   'getBalance'   │  18   │
+      │    2    │ 'getBlockNumber' │  15   │
+      │    3    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  15   │
+      │    1    │      'call'      │  36   │
+      │    2    │   'getBalance'   │  18   │
+      │    3    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │      'getGasPrice'      │  14   │
+      │    1    │      'estimateGas'      │   3   │
+      │    2    │    'sendTransaction'    │   2   │
+      │    3    │ 'getTransactionReceipt' │   2   │
+      │    4    │      'getBalance'       │  19   │
+      │    5    │    'getBlockNumber'     │  87   │
+      │    6    │       'getBlock'        │  145  │
+      │    7    │        'getLogs'        │  72   │
+      │    8    │         'call'          │  184  │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  18   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  54   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  98   │
+      │    5    │      'getBalance'       │  60   │
+      │    6    │       'getBlock'        │   7   │
+      │    7    │        'getLogs'        │   3   │
+      │    8    │      'estimateGas'      │  84   │
+      │    9    │    'sendTransaction'    │  42   │
+      │   10    │ 'getTransactionReceipt' │  41   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  36   │
+      │    1    │   'getBalance'   │  18   │
+      │    2    │  'getGasPrice'   │  12   │
+      │    3    │ 'getBlockNumber' │  15   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  15   │
+      │    1    │  'getGasPrice'   │  12   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-tools/build/libs/ganache.js:129
+      Stream ended
+    console.log packages/augur-tools/build/libs/ganache.js:126
+      Stream closed
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-sdk/build/state/db/DB.js:206
+      undefined
+    console.log packages/augur-test/src/tests/state/getter/Universe.test.ts:260
+      Verify from John's perspective.
+    console.log packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:24
+      Syncing from 1 to 195
+    console.time packages/augur-sdk/build/state/sync/BulkSyncStrategy.js:35
+      1-195: 143ms
+    console.log packages/augur-sdk/build/state/db/DB.js:307
+      Syncing derived DBs
+    console.log packages/augur-test/src/tests/state/getter/Universe.test.ts:285
+      Verify from Bob's perspective.
+    console.log packages/augur-test/src/tests/state/getter/Universe.test.ts:306
+      Create a market to see how that affects numberOfMarkets.
+    console.log packages/augur-tools/build/libs/contract-api.js:79
+      Cash Faucet for market creation
+    console.log packages/augur-tools/build/libs/contract-api.js:81
+      REP Faucet for market creation
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  15   │
+      │    1    │  'getGasPrice'   │  12   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log packages/augur-test/src/tests/state/getter/Universe.test.ts:331
+      Fork to see how that affects the children.
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │ 'getTransactionReceipt' │  22   │
+      │    1    │         'call'          │  202  │
+      │    2    │      'getBalance'       │  38   │
+      │    3    │      'estimateGas'      │  42   │
+      │    4    │      'getGasPrice'      │  33   │
+      │    5    │    'sendTransaction'    │  21   │
+      │    6    │    'getBlockNumber'     │  87   │
+      │    7    │       'getBlock'        │  145  │
+      │    8    │        'getLogs'        │  72   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  36   │
+      │    1    │   'getBalance'   │  18   │
+      │    2    │  'getGasPrice'   │  12   │
+      │    3    │ 'getBlockNumber' │  15   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  15   │
+      │    1    │  'getGasPrice'   │  12   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬─────────────────────────┬───────┐
+      │ (index) │         method          │ count │
+      ├─────────┼─────────────────────────┼───────┤
+      │    0    │    'getBlockNumber'     │  18   │
+      │    1    │  'getTransactionCount'  │   3   │
+      │    2    │      'getGasPrice'      │  59   │
+      │    3    │        'getCode'        │   9   │
+      │    4    │         'call'          │  115  │
+      │    5    │      'getBalance'       │  65   │
+      │    6    │      'estimateGas'      │  94   │
+      │    7    │    'sendTransaction'    │  47   │
+      │    8    │ 'getTransactionReceipt' │  47   │
+      │    9    │       'getBlock'        │   8   │
+      │   10    │        'getLogs'        │   3   │
+      └─────────┴─────────────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │ 'getBlockNumber' │  14   │
+      │    1    │  'getGasPrice'   │  12   │
+      │    2    │      'call'      │  36   │
+      │    3    │   'getBalance'   │  18   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┬──────────────────┬───────┐
+      │ (index) │      method      │ count │
+      ├─────────┼──────────────────┼───────┤
+      │    0    │      'call'      │  36   │
+      │    1    │   'getBalance'   │  18   │
+      │    2    │ 'getBlockNumber' │  15   │
+      │    3    │  'getGasPrice'   │  12   │
+      └─────────┴──────────────────┴───────┘
+    console.log internal/console/constructor.js:468
+      ┌─────────┐
+      │ (index) │
+      ├─────────┤
+      └─────────┘
+
+
+Test Suites: 1 skipped, 19 passed, 19 of 20 total
+Tests:       1 skipped, 52 passed, 53 total
+Snapshots:   0 total
+Time:        606.457s
+Ran all test suites in 3 projects.
+Done in 667.29s.
+Run condition [Execute Shell] enabling perform for step [BuilderChain]
+Getting given commit hash from environment
+Git commit hash: 96129780afe1d68b766ab0651aab46dd90cc8059
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties content 
+SUCCESS=true
+
+[EnvInject] - Variables injected successfully.
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] preventing perform for step [EthOps: voting]
+Finished: SUCCESS

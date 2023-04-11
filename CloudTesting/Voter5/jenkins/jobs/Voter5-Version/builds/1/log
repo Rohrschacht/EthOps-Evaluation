@@ -1,0 +1,73 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/ubuntu/.jenkins/workspace/Voter5-Version
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Rohrschacht/augur-main
+ > git init /home/ubuntu/.jenkins/workspace/Voter5-Version # timeout=10
+Fetching upstream changes from https://github.com/Rohrschacht/augur-main
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Rohrschacht/augur-main +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Rohrschacht/augur-main # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+First time build. Skipping changelog.
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter5-Version] $ /bin/sh -xe /tmp/CommandInterpreterCondition892067115938394042.sh
++ set -e
++ rm -rf packages/augur-test
++ git clone https://github.com/Rohrschacht/augur-voter-tests packages/augur-test
+Cloning into 'packages/augur-test'...
++ make test
+yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+[3/5] Fetching packages...
+warning Pattern ["concat-stream@github:hugomrdias/concat-stream#feat/smaller"] is trying to unpack in the same destination "/home/ubuntu/.cache/yarn/v6/npm-concat-stream-2.0.0/node_modules/concat-stream" as pattern ["concat-stream@^2.0.0"]. This could result in non-deterministic behavior, skipping.
+warning url-loader@1.1.2: Invalid bin field for "url-loader".
+[4/5] Linking dependencies...
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "go-ipfs-dep@*".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs@*".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs-http-client@*".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/tools > @openzeppelin/gsn-helpers@0.2.3" has unmet peer dependency "chai@^4.2.0".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/ui > @toruslabs/torus-embed@1.7.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/ui > react-router-sitemap@1.2.0" has unmet peer dependency "react-router@^2.3.0 || ^3.2.1 || ^4.3.0".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/sdk > @augurproject/indexeddbshim > typeson@5.18.2" has unmet peer dependency "core-js-bundle@^3.6.4".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/fetch-node-details@2.3.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/torus.js@2.2.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/ui > enzyme-adapter-react-16 > react-test-renderer@16.13.1" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-2c1c053b-23d6-45c2-bb57-f495234b3973 > @augurproject/sdk > @augurproject/indexeddbshim > typeson-registry > base64-arraybuffer-es6@0.5.0" has unmet peer dependency "core-js-bundle@^3.1.3".
+error Could not write file "/home/ubuntu/.jenkins/workspace/Voter5-Version/yarn-error.log": "ENOSPC: no space left on device, write"
+error An unexpected error occurred: "ENOSPC: no space left on device, copyfile '/home/ubuntu/.cache/yarn/v6/npm-mobx-5.13.0-0fd68f10aa5ff2d146a4ed9e145b53337cfbca59-integrity/node_modules/mobx/lib/api/iscomputed.d.ts' -> '/home/ubuntu/.jenkins/workspace/Voter5-Version/node_modules/mobx/lib/api/iscomputed.d.ts'".
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+make: *** [Makefile:37: download-packages] Error 1
+Run condition [Execute Shell] preventing perform for step [BuilderChain]
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] enabling perform for step [EthOps: voting]
+Getting given commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+Finished: SUCCESS

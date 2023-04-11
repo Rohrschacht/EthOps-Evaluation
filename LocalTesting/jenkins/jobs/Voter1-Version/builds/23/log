@@ -1,0 +1,44 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Version
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository file:///home/tobias/sandbox/augur
+ > git init /home/tobias/.jenkins/workspace/Voter1-Version # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter1-Version] $ /bin/sh -xe /tmp/CommandInterpreterCondition340759862473041680.sh
++ set -e
++ rm -rf packages/augur-test
++ git clone /home/tobias/sandbox/augur-voter1-version packages/augur-test
+Cloning into 'packages/augur-test'...
+done.
+Run condition [Execute Shell] enabling perform for step [BuilderChain]
+Getting given commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties content 
+SUCCESS=true
+
+[EnvInject] - Variables injected successfully.
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] preventing perform for step [EthOps: voting]
+Finished: SUCCESS

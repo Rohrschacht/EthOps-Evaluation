@@ -1,0 +1,906 @@
+
+SET BLOCKCHAIN "Ethereum";
+
+SET OUTPUT FOLDER "./test_output";
+SET CONNECTION "ws://localhost:8545/";
+
+string pid = "DevOpsRegistry";
+
+BLOCKS (EARLIEST) (136) {
+
+//    EMIT XES TRACE (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)(0x5fbdb2315678afecb367f032d93f642f64180aa3 as xs:string concept:name);
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x5fbdb2315678afecb367f032d93f642f64180aa3) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x5fbdb2315678afecb367f032d93f642f64180aa3)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0 as xs:string concept:name);
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9 as xs:string concept:name);
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xdc64a140aa3e981100a9beca4e685f962f0cf6c9) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0xdc64a140aa3e981100a9beca4e685f962f0cf6c9)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853 as xs:string concept:name);
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xa513e6e4b8f2a923d98304ec87f64353c4d5c853) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0xa513e6e4b8f2a923d98304ec87f64353c4d5c853)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)(0x8a791620dd6260079bf849dc5567adc3f2fdc318 as xs:string concept:name);
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x8a791620dd6260079bf849dc5567adc3f2fdc318) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x8a791620dd6260079bf849dc5567adc3f2fdc318)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e as xs:string concept:name);
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xb7f8bc63bbcad18155201308c8f3540b07f84f5e) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0xb7f8bc63bbcad18155201308c8f3540b07f84f5e)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82 as xs:string concept:name);
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0dcd1bf9a1b36ce34237eeafef220932846bcd82) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x0dcd1bf9a1b36ce34237eeafef220932846bcd82)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)(0x0b306bf915c4d645ff596e518faf3f9669b97016 as xs:string concept:name);
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x0b306bf915c4d645ff596e518faf3f9669b97016) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x0b306bf915c4d645ff596e518faf3f9669b97016)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae as xs:string concept:name);
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x9a9f2ccfde556a7e9ff0848998aa4a0cfd8863ae)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)(0x3aa5ebb10dc797cac828524e59a333d0a371443c as xs:string concept:name);
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x3aa5ebb10dc797cac828524e59a333d0a371443c) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x3aa5ebb10dc797cac828524e59a333d0a371443c)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)(0x59b670e9fa9d0a427751af201d676719a970857b as xs:string concept:name);
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x59b670e9fa9d0a427751af201d676719a970857b) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x59b670e9fa9d0a427751af201d676719a970857b)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44 as xs:string concept:name);
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x322813fd9a801c5507c9de605d63cea4f2ce6c44) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x322813fd9a801c5507c9de605d63cea4f2ce6c44)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)(0x4a679253410272dd5232b3ff7cf5dbb88f295319 as xs:string concept:name);
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x4a679253410272dd5232b3ff7cf5dbb88f295319) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x4a679253410272dd5232b3ff7cf5dbb88f295319)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)(0x09635f643e140090a9a8dcd712ed6285858cebef as xs:string concept:name);
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x09635f643e140090a9a8dcd712ed6285858cebef) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x09635f643e140090a9a8dcd712ed6285858cebef)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)(0x67d269191c92caf3cd7723f116c85e6e9bf55933 as xs:string concept:name);
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0x67d269191c92caf3cd7723f116c85e6e9bf55933) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0x67d269191c92caf3cd7723f116c85e6e9bf55933)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+
+//    EMIT XES TRACE (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690 as xs:string concept:name);
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (NominateVoter(address nominee)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("nominate voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (ReleaseVoter(address releasee)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("release voter" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (RoleBindingVoteCast(address voter, address subject, bool accepted)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("vote role-binding proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (RoleBindingAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("accept role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (RoleBindingRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("reject role-binding" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (VersionProposalCreated(bytes20 proposal)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("create version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (DeploymentProposalCreated(address proposal)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("create deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (VersionQuorumProposalCreated(uint newVersionQuorum)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("create version quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (RoleBindingQuorumProposalCreated(uint newRoleBindingQuorum)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("create role-binding quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (VersionVoteCast(address voter, bytes20 proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("vote version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (DeploymentVoteCast(address voter, address proposal, bool accepted)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("vote deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (QuorumVoteCast(address voter, bool accepted)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("vote quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (VersionAccepted(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("accept version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (VersionRejected(bytes20 subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("reject version proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (DeploymentAccepted(address subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("accept deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (DeploymentRejected(address subject)) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("reject deployment proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (QuorumAccepted()) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("accept quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+    LOG ENTRIES (0xc3e53f4d16ae77db1c982e75a937b9f60fe63690) (QuorumRejected()) {
+        EMIT XES EVENT (pid)(0xc3e53f4d16ae77db1c982e75a937b9f60fe63690)()("reject quorum proposal" as xs:string concept:name, block.timestamp as xs:date time:timestamp);
+    }
+}

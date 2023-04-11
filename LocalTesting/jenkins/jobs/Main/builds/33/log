@@ -1,0 +1,459 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/sim-dep-env^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (refs/remotes/origin/sim-dep-env)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+Getting commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+Calling webhook URL: http://localhost:8080/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6&VOTING_TYPE=version
+OK
+Checking if VersionProposal is accepted or rejected
+[Main] $ /bin/sh -xe /tmp/jenkins17045046356221739796.sh
++ set -e
++ python3.8 -m venv venv
++ yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+success Already up-to-date.
+Done in 1.76s.
++ make build-contracts
+yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+success Already up-to-date.
+Done in 1.75s.
+yarn build
+yarn run v1.22.19
+$ tsc -b
+Done in 4.75s.
+python3 -m pip install virtualenv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /usr/lib/python3.10/site-packages (20.16.7)
+Requirement already satisfied: platformdirs<3,>=2.4 in /usr/lib/python3.10/site-packages (from virtualenv) (2.5.2)
+Requirement already satisfied: distlib<1,>=0.3.6 in /usr/lib/python3.10/site-packages (from virtualenv) (0.3.6)
+Requirement already satisfied: filelock<4,>=3.4.1 in /usr/lib/python3.10/site-packages (from virtualenv) (3.9.0)
+python3 -m venv venv
+. venv/bin/activate; \
+python3 -m pip install -r packages/augur-core/requirements.txt; \
+yarn workspace @augurproject/core build:contracts; \
+deactivate
+Requirement already satisfied: atomicwrites==1.3.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 7)) (1.3.0)
+Requirement already satisfied: attrdict==2.0.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 8)) (2.0.1)
+Requirement already satisfied: attrs==19.1.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 9)) (19.1.0)
+Requirement already satisfied: augur-solidity-flattener==0.2.5 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 10)) (0.2.5)
+Requirement already satisfied: base58==1.0.3 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 11)) (1.0.3)
+Requirement already satisfied: blake2b-py==0.1.3 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 12)) (0.1.3)
+Requirement already satisfied: cached-property==1.5.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 13)) (1.5.1)
+Requirement already satisfied: certifi==2019.9.11 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 14)) (2019.9.11)
+Requirement already satisfied: chardet==3.0.4 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 15)) (3.0.4)
+Requirement already satisfied: cytoolz==0.10.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: eth-abi==2.0.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 17)) (2.0.0)
+Requirement already satisfied: eth-account==0.4.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 18)) (0.4.0)
+Requirement already satisfied: eth-bloom==1.0.3 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 19)) (1.0.3)
+Requirement already satisfied: eth-hash[pycryptodome]==0.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 20)) (0.2.0)
+Requirement already satisfied: eth-keyfile==0.5.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 21)) (0.5.1)
+Requirement already satisfied: eth-keys==0.2.4 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 22)) (0.2.4)
+Requirement already satisfied: eth-rlp==0.1.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 23)) (0.1.2)
+Requirement already satisfied: eth-tester==0.4.0b1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 24)) (0.4.0b1)
+Requirement already satisfied: eth-typing==2.2.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 25)) (2.2.1)
+Requirement already satisfied: eth-utils==1.8.4 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 26)) (1.8.4)
+Requirement already satisfied: gprof2dot==2017.9.19 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 27)) (2017.9.19)
+Requirement already satisfied: hexbytes==0.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 28)) (0.2.0)
+Requirement already satisfied: idna==2.8 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 29)) (2.8)
+Requirement already satisfied: importlib-metadata==0.23 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 30)) (0.23)
+Requirement already satisfied: ipfshttpclient==0.4.12 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 31)) (0.4.12)
+Requirement already satisfied: jsonschema==3.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 32)) (3.2.0)
+Requirement already satisfied: lru-dict==1.1.6 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 33)) (1.1.6)
+Requirement already satisfied: more-itertools==7.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 34)) (7.2.0)
+Requirement already satisfied: multiaddr==0.0.8 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 35)) (0.0.8)
+Requirement already satisfied: mypy-extensions==0.4.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 36)) (0.4.1)
+Requirement already satisfied: netaddr==0.7.19 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 37)) (0.7.19)
+Requirement already satisfied: numpy==1.18.3 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 38)) (1.18.3)
+Requirement already satisfied: packaging==19.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 39)) (19.2)
+Requirement already satisfied: parsimonious==0.8.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 40)) (0.8.1)
+Requirement already satisfied: pluggy==0.13.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 41)) (0.13.0)
+Requirement already satisfied: protobuf==3.11.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 42)) (3.11.2)
+Requirement already satisfied: py-ecc==1.7.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 43)) (1.7.1)
+Requirement already satisfied: py-evm==0.3.0a14 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 44)) (0.3.0a14)
+Requirement already satisfied: py-geth==2.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 45)) (2.2.0)
+Requirement already satisfied: py-solc==1.4.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 46)) (1.4.0)
+Requirement already satisfied: py==1.8.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 47)) (1.8.0)
+Requirement already satisfied: pycryptodome==3.9.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 48)) (3.9.0)
+Requirement already satisfied: pyethash==0.1.27 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 49)) (0.1.27)
+Requirement already satisfied: pyparsing==2.4.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 50)) (2.4.2)
+Requirement already satisfied: pyrsistent==0.15.6 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 51)) (0.15.6)
+Requirement already satisfied: pysha3==1.0.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 52)) (1.0.2)
+Requirement already satisfied: pytest-profiling==1.2.11 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 53)) (1.2.11)
+Requirement already satisfied: pytest==4.6.5 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 54)) (4.6.5)
+Requirement already satisfied: requests==2.22.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 55)) (2.22.0)
+Requirement already satisfied: rlp==1.1.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 56)) (1.1.0)
+Requirement already satisfied: semantic-version==2.8.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 57)) (2.8.2)
+Requirement already satisfied: six==1.12.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 58)) (1.12.0)
+Requirement already satisfied: toolz==0.10.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 59)) (0.10.0)
+Requirement already satisfied: trie==1.4.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 60)) (1.4.0)
+Requirement already satisfied: typing-extensions==3.7.4.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 61)) (3.7.4.1)
+Requirement already satisfied: urllib3==1.25.5 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 62)) (1.25.5)
+Requirement already satisfied: varint==1.0.2 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 63)) (1.0.2)
+Requirement already satisfied: virtualenv==15.2.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 64)) (15.2.0)
+Requirement already satisfied: wcwidth==0.1.7 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 65)) (0.1.7)
+Requirement already satisfied: web3==5.6.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 66)) (5.6.0)
+Requirement already satisfied: websockets==8.1 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 67)) (8.1)
+Requirement already satisfied: zipp==0.6.0 in ./venv/lib/python3.8/site-packages (from -r packages/augur-core/requirements.txt (line 68)) (0.6.0)
+Requirement already satisfied: setuptools in ./venv/lib/python3.8/site-packages (from jsonschema==3.2.0->-r packages/augur-core/requirements.txt (line 32)) (56.0.0)
+WARNING: You are using pip version 22.0.4; however, version 23.0.1 is available.
+You should consider upgrading via the '/home/tobias/.jenkins/workspace/Main/venv/bin/python3 -m pip install --upgrade pip' command.
+yarn workspace v1.22.19
+yarn run v1.22.19
+$ node -r ts-node/register src/deployment/compileContracts.ts && npm run build:documentation
+npm WARN lifecycle The node binary used for scripts is /tmp/yarn--1678405080610-0.2815830642498187/node but npm is using /home/tobias/.config/nvm/versions/node/v12.22.12/bin/node itself. Use the `--scripts-prepend-node-path` option to include the path for the node binary npm was executed with.
+
+> @augurproject/core@2.0.5 build:documentation /home/tobias/.jenkins/workspace/Main/packages/augur-core
+> yarn solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+
+$ /home/tobias/.jenkins/workspace/Main/node_modules/.bin/solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+Done in 3.55s.
+Done in 3.86s.
++ yarn tools flash --key [*******] deploy
+yarn run v1.22.19
+$ yarn workspace @augurproject/tools flash --key [*******] deploy
+$ ts-node ./src/flash/cli --key [*******] deploy
+Deploying:  {
+  isProduction: false,
+  enableFaucets: true,
+  normalTime: true,
+  writeArtifacts: true,
+  serial: true,
+  externalAddresses: {}
+}
+Processing 66 contracts
+Processing contract: ERC1155Proxy
+Processing contract: ERC20Proxy
+Processing contract: ERC721Proxy
+Processing contract: MultiAssetProxy
+Processing contract: ChaiBridge
+Processing contract: Coordinator
+Processing contract: CoordinatorRegistry
+Processing contract: DevUtils
+Processing contract: WETH9
+Processing contract: ZRXToken
+Processing contract: Exchange
+Processing contract: Augur
+Processing contract: AugurWallet
+Processing contract: AugurWalletRegistry
+Processing contract: AugurWalletRegistryV2
+Processing contract: Cash
+Processing contract: LegacyReputationToken
+Processing contract: TestNetReputationToken
+Processing contract: Time
+Processing contract: TimeControlled
+Processing contract: USDC
+Processing contract: USDT
+Processing contract: WarpSync
+Processing contract: AugurWalletFactory
+Processing contract: DisputeCrowdsourcerFactory
+Processing contract: DisputeWindowFactory
+Processing contract: InitialReporterFactory
+Processing contract: MarketFactory
+Processing contract: OICashFactory
+Processing contract: ReputationTokenFactory
+Processing contract: TestNetReputationTokenFactory
+Processing contract: UniverseFactory
+Processing contract: RelayHub
+Processing contract: Penalizer
+Processing contract: RelayHubV2
+Processing contract: StakeManager
+Processing contract: AffiliateValidator
+Processing contract: Affiliates
+Processing contract: DisputeCrowdsourcer
+Processing contract: DisputeWindow
+Processing contract: InitialReporter
+Processing contract: Market
+Processing contract: OICash
+Processing contract: RepOracle
+Processing contract: ReputationToken
+Processing contract: ShareToken
+Processing contract: Universe
+Processing contract: AugurTrading
+Processing contract: CancelOrder
+Processing contract: CreateOrder
+Processing contract: FillOrder
+Processing contract: Orders
+Processing contract: ProfitLoss
+Processing contract: SimulateTrade
+Processing contract: Trade
+Processing contract: ZeroXTrade
+Processing contract: UniswapV2Factory
+Processing contract: UniswapV2Pair
+Processing contract: UniswapV2Router02
+Processing contract: AccountLoader
+Processing contract: AuditFunds
+Processing contract: BuyParticipationTokens
+Processing contract: Formulas
+Processing contract: HotLoading
+Processing contract: RedeemStake
+Processing contract: RepSymbol
+Uploading Augur Wallet Factory...
+Upload contract: AugurWalletFactory
+Uploaded contract: AugurWalletFactory: "0xa502E3D508E723BCF6C6fE2EfE9e3F6E93A1313C"
+Uploading augur...
+Upload contract: Augur
+Uploaded contract: Augur: "0xf4189684C4e0eA134779D59b7ea5411823722899"
+CONTRACT_ADDRESS=0xf4189684C4e0eA134779D59b7ea5411823722899
+Augur address: 0xf4189684C4e0eA134779D59b7ea5411823722899
+Uploading Augur Trading...
+Upload contract: AugurTrading
+Uploaded contract: AugurTrading: "0xDE5b52cee729791101DAEca093E16AFd0c4A6Bb1"
+Augur Trading address: 0xDE5b52cee729791101DAEca093E16AFd0c4A6Bb1
+Uploading contracts...
+Uploading new version of contract for AugurWallet
+Upload contract: AugurWallet
+Uploaded contract: AugurWallet: "0x2E32F4a4A93A32bA52EB14f7D1e2b84e1286Fd1C"
+Uploading new version of contract for AugurWalletRegistry
+Upload contract: AugurWalletRegistry
+Uploaded contract: AugurWalletRegistry: "0xC3B54cEF2E1a50717f0F4D91d4495d1621015fAD"
+Uploading new version of contract for AugurWalletRegistryV2
+Upload contract: AugurWalletRegistryV2
+Uploaded contract: AugurWalletRegistryV2: "0xFc2c1Abd908CbA89Ba291De3bb2d6d64a52b8263"
+Uploading new version of contract for Time
+Upload contract: Time
+Uploaded contract: Time: "0x0f8be753305bCa839684AC6f64Bad5e2762803Fe"
+Uploading new version of contract for WarpSync
+Upload contract: WarpSync
+Uploaded contract: WarpSync: "0x2FCE4681dcB6Cbe11F6Be477C6354b42EC12714C"
+Uploading new version of contract for DisputeCrowdsourcerFactory
+Upload contract: DisputeCrowdsourcerFactory
+Uploaded contract: DisputeCrowdsourcerFactory: "0x69a2ADd6760f6362A3a82BA96D7d35f3B2d66D52"
+Uploading new version of contract for DisputeWindowFactory
+Upload contract: DisputeWindowFactory
+Uploaded contract: DisputeWindowFactory: "0xFEc87f383b8339BD311378Fe105ce821e32643DD"
+Uploading new version of contract for InitialReporterFactory
+Upload contract: InitialReporterFactory
+Uploaded contract: InitialReporterFactory: "0x65861C509927644926880702aAb21eE3BB4bFB33"
+Uploading new version of contract for MarketFactory
+Upload contract: MarketFactory
+Uploaded contract: MarketFactory: "0x85aB6c7591d02e5749b6C668cf601d6a257EaF54"
+Uploading new version of contract for OICashFactory
+Upload contract: OICashFactory
+Uploaded contract: OICashFactory: "0x6D94A4422201FD8C9D9065dc516538D5413364C4"
+Uploading new version of contract for ReputationTokenFactory
+Upload contract: TestNetReputationTokenFactory
+Uploaded contract: TestNetReputationTokenFactory: "0xc353c773cA169E8c676499e3D31fA4F974204Ba7"
+Uploading new version of contract for UniverseFactory
+Upload contract: UniverseFactory
+Uploaded contract: UniverseFactory: "0xf4a42aBC77C1553264bC26Ac7Df18799f37b1fEC"
+Uploading new version of contract for AffiliateValidator
+Upload contract: AffiliateValidator
+Uploaded contract: AffiliateValidator: "0x3E6806B59729fc3F50a8aF8669f8D89e9Ad1AbDC"
+Uploading new version of contract for Affiliates
+Upload contract: Affiliates
+Uploaded contract: Affiliates: "0xfCB4d4B9393a7B52b3b42773e6a531cAf361da87"
+Uploading new version of contract for DisputeCrowdsourcer
+Upload contract: DisputeCrowdsourcer
+Uploaded contract: DisputeCrowdsourcer: "0x8AE809abcAADcb10Bd65B7D30479a17758A02110"
+Uploading new version of contract for DisputeWindow
+Upload contract: DisputeWindow
+Uploaded contract: DisputeWindow: "0x6364328eec60bc6D2a54c261D6053EFA279425b9"
+Uploading new version of contract for InitialReporter
+Upload contract: InitialReporter
+Uploaded contract: InitialReporter: "0x4d50dAB0e2fbc88d118C39f5e90a31EF8CB1927a"
+Uploading new version of contract for Market
+Upload contract: Market
+Uploaded contract: Market: "0xe2C875C2D99dEcbCB23eA19d9553A9cfF61a694b"
+Uploading new version of contract for OICash
+Upload contract: OICash
+Uploaded contract: OICash: "0x1f1D6C7f114B25BD7AaF7211335E25090841EDDA"
+Uploading new version of contract for RepOracle
+Upload contract: RepOracle
+Uploaded contract: RepOracle: "0xd6e455475F551c7e47992845F08ad6b02C32eba9"
+Uploading new version of contract for ShareToken
+Upload contract: ShareToken
+Uploaded contract: ShareToken: "0x96eeafaA7197F9ea2b392c130CccD536814125e3"
+Uploading new version of contract for CancelOrder
+Upload contract: CancelOrder
+Uploaded contract: CancelOrder: "0xD5aCB79D491a5427501F8C9436f7a1A5C8E1f64d"
+Uploading new version of contract for CreateOrder
+Upload contract: CreateOrder
+Uploaded contract: CreateOrder: "0x245e3cD9C7817281A9dc66EA302AF11b27e9198D"
+Uploading new version of contract for FillOrder
+Upload contract: FillOrder
+Uploaded contract: FillOrder: "0x143456e21fBf2C2d7622D5aFd57e884f098Ee6A8"
+Uploading new version of contract for Orders
+Upload contract: Orders
+Uploaded contract: Orders: "0x4A9bCBC8e581eAf2E429E75abc754095BAD2EcC1"
+Uploading new version of contract for ProfitLoss
+Upload contract: ProfitLoss
+Uploaded contract: ProfitLoss: "0x94ADeafA43c0329504e77243D55Ef7BF15A07690"
+Uploading new version of contract for SimulateTrade
+Upload contract: SimulateTrade
+Uploaded contract: SimulateTrade: "0xb7E38AE9a2f4dE8C5eDE60A2DcE8C5048B0038a0"
+Uploading new version of contract for Trade
+Upload contract: Trade
+Uploaded contract: Trade: "0xA76AeB666b97d23B261483520fb37bF82f46227C"
+Uploading new version of contract for ZeroXTrade
+Upload contract: ZeroXTrade
+Uploaded contract: ZeroXTrade: "0xCf5b291114E50BfAFDfDAfDCf9C9b8f1E1Bb917e"
+Uploading new version of contract for AccountLoader
+Upload contract: AccountLoader
+Uploaded contract: AccountLoader: "0x475342f7C03C7992c154BCc9181202c6eD1b742B"
+Uploading new version of contract for AuditFunds
+Upload contract: AuditFunds
+Uploaded contract: AuditFunds: "0xD2b64Ab3752a43D6fDBCC1840FcB8FC87cE4cD3b"
+Uploading new version of contract for BuyParticipationTokens
+Upload contract: BuyParticipationTokens
+Uploaded contract: BuyParticipationTokens: "0x866223BA42dBf67D2C16Ed9149cACE6DB9d4fd4f"
+Uploading new version of contract for Formulas
+Upload contract: Formulas
+Uploaded contract: Formulas: "0x7F65b49662858DAc76Bf29a1ea94FfaADd4ED056"
+Uploading new version of contract for HotLoading
+Upload contract: HotLoading
+Uploaded contract: HotLoading: "0x8bDfB5cAD3601321Cd42daC4358713fBAE2A1499"
+Uploading new version of contract for RedeemStake
+Upload contract: RedeemStake
+Uploaded contract: RedeemStake: "0x883C405591424c4b19439a18b424583E71f5f631"
+Uploading new version of contract for RepSymbol
+Upload contract: RepSymbol
+Uploaded contract: RepSymbol: "0x2A24AD8ba56C560f1858D9fC8b5c8Ff01Dedd618"
+Upload contract: LegacyReputationToken
+Uploaded contract: LegacyReputationToken: "0xbF1dA1523f5bBe078d62f8E297b87Cd525Cbaa9b"
+Upload contract: Cash
+Uploaded contract: Cash: "0xf49A3AaF835cF8dEDde6174A466ea7a9A8a5DAA8"
+Upload contract: WETH9
+Uploaded contract: WETH9: "0xF03D093ef319C0B769Ad32C0A212d251D99071C8"
+Upload contract: USDC
+Uploaded contract: USDC: "0x1632FF028306D8358100A6Bbc4b64d5b429b5869"
+Upload contract: USDT
+Uploaded contract: USDT: "0x1e9E59d953F3Ba130e3cD98bF56e8eaFC29f6205"
+Upload contract: ERC20Proxy
+Uploaded contract: ERC20Proxy: "0xC7F65A3ea53b3CcC00674d7D829272623e0dFc07"
+Upload contract: ERC721Proxy
+Uploaded contract: ERC721Proxy: "0xE3a8cd8Dd88f2FdBbeCb0f18F1293A6026A91943"
+Upload contract: ERC1155Proxy
+Uploaded contract: ERC1155Proxy: "0x96d175048fB1B33EE2137541937E1bf68aed6F86"
+Upload contract: MultiAssetProxy
+Uploaded contract: MultiAssetProxy: "0xc833eE9F94Fd9F58D165d2C3Bc26B7387f781aDA"
+Upload contract: Exchange
+Uploaded contract: Exchange: "0x5DC1D626dE063a3e5d4014CeE933c0b309e79542"
+Upload contract: Coordinator
+Uploaded contract: Coordinator: "0xb67a990f291254C2d68C61F24eBb0D741B253298"
+Upload contract: CoordinatorRegistry
+Uploaded contract: CoordinatorRegistry: "0x4a8f1A48fcd7914d0934996F724cc7D3953A2fb3"
+Upload contract: ChaiBridge
+Uploaded contract: ChaiBridge: "0xeF166a9F321249574865F520624Af8dE5955D8EC"
+Upload contract: DevUtils
+Uploaded contract: DevUtils: "0x5240a3f4e56fc4696184B085167eC6A773B28B37"
+Upload contract: ZRXToken
+Uploaded contract: ZRXToken: "0x24bcf7bcE0D5f8177402bd1aE20543E596A88AC0"
+Upload contract: UniswapV2Factory
+Uploaded contract: UniswapV2Factory: "0x85a9C738eFe3bE8348814a426Aa5148a396DC0F6"
+Upload contract: UniswapV2Router02
+Uploaded contract: UniswapV2Router02: "0xec63999f4E98C9B5dBe91b4Bc4f12D0726CFd1C5"
+Relay Hub is already deployed to this environment. Skipping Deploy.
+Uploading GSN V2 contracts
+Upload contract: Penalizer
+Uploaded contract: Penalizer: "0x3E33741792BcB9dc9CC5888e17c8cc0118b177ca"
+Upload contract: StakeManager
+Uploaded contract: StakeManager: "0x5E296614cadEcb72015fc9960AdD8E58212590B8"
+Upload contract: RelayHubV2
+Uploaded contract: RelayHubV2: "0x29C320B5E57b989b12E64F6d5A3e5151Dec51E90"
+Initializing contracts...
+Initializing ShareToken contract
+Initialized ShareToken contract
+Initializing CreateOrder contract
+Initialized CreateOrder contract
+Initializing FillOrder contract
+Initialized FillOrder contract
+Initializing CancelOrder contract
+Initialized CancelOrder contract
+Initializing Trade contract
+Initialized Trade contract
+Initializing Orders contract
+Initialized Orders contract
+Initializing ProfitLoss contract
+Initialized ProfitLoss contract
+Initializing SimulateTrade contract
+Initialized SimulateTrade contract
+Initializing ZeroXTrade contract
+Initialized ZeroXTrade contract
+Initializing WarpSync contract
+Initialized WarpSync contract
+Initializing RepOracle contract
+Initialized RepOracle contract
+Initializing AuditFunds contract
+Initialized AuditFunds contract
+Initializing AccountLoader contract
+Initialized AccountLoader contract
+Initializing AugurWalletRegistry contract
+Initialized AugurWalletRegistry contract
+Initializing AugurWalletRegistryV2 contract
+Initialized AugurWalletRegistryV2 contract
+Initializing AugurWalletFactory contract
+Initialized AugurWalletFactory contract
+Doing trade approvals...
+Initializing fake legacy REP
+Creating genesis universe
+Creating genesis universe...
+Genesis universe address: 0x1a14b554B66b52B26603d1410eA68913621fE54a
+Migrating from fake legacy REP
+Initializing warp sync market
+Approving Augur
+Add ETH-Cash exchange liquidity
+Add REP-Cash exchange liquidity
+Adding liquidity
+Add USDC-Cash exchange liquidity
+Adding liquidity
+Add USDT-Cash exchange liquidity
+Adding liquidity
+Writing artifacts
+Finalizing deployment
+Done in 27.58s.
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'packages/augur-tools/contract_address.env'
+[EnvInject] - Variables injected successfully.
+Getting commit hash from environment
+Git commit hash: 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6
+Getting newly deployed contract address from environment
+Contract address: 0xf4189684C4e0eA134779D59b7ea5411823722899
+OK
+Finished: SUCCESS

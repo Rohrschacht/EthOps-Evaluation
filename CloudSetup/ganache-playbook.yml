@@ -1,0 +1,42 @@
+- hosts: ganache
+  tasks:
+    - name: update system
+      become: yes
+      apt:
+        upgrade: dist
+        update_cache: yes
+      register: update_result
+    - name: restart system
+      become: yes
+      shell: sleep 5 && shutdown -r now
+      async: 1
+      poll: 0
+      when: update_result.changed
+    - name: wait 10 seconds
+      wait_for:
+        timeout: 10
+      when: update_result.changed
+    - name: wait for system to restart
+      wait_for:
+        port: 22
+        timeout: 180
+      when: update_result.changed
+    - name: install curl
+      become: yes
+      apt:
+        name: curl
+        state: present
+    - name: install nvm
+      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    - name: install node version 14
+      shell: bash -c '. ~/.nvm/nvm.sh && nvm install lts/fermium'
+    - name: install ganache-cli version 6
+      shell: bash -c '. ~/.nvm/nvm.sh && npm install -g ganache-cli@6'
+    - name: create blockchain db folder
+      file:
+        path: /home/ubuntu/blockchain
+        state: directory
+    - name: upload accounts.json
+      copy:
+        src: accounts.json
+        dest: /home/ubuntu/accounts.json

@@ -1,0 +1,435 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Deployment
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository file:///home/tobias/sandbox/augur
+ > git init /home/tobias/.jenkins/workspace/Voter1-Deployment # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter1-Deployment] $ /bin/sh -xe /tmp/CommandInterpreterCondition5228099541386600851.sh
++ set -e
++ rm -f packages/augur-core/src/libraries/ContractDeployer.ts
++ git clone /home/tobias/sandbox/augur-voter1-deployment packages/augur-deployment
+Cloning into 'packages/augur-deployment'...
+done.
++ cp -v packages/augur-deployment/ContractDeployer.ts packages/augur-core/src/libraries/ContractDeployer.ts
+'packages/augur-deployment/ContractDeployer.ts' -> 'packages/augur-core/src/libraries/ContractDeployer.ts'
++ python3.8 -m venv venv
++ yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+[3/5] Fetching packages...
+warning Pattern ["concat-stream@github:hugomrdias/concat-stream#feat/smaller"] is trying to unpack in the same destination "/home/tobias/.cache/yarn/v6/npm-concat-stream-2.0.0/node_modules/concat-stream" as pattern ["concat-stream@^2.0.0"]. This could result in non-deterministic behavior, skipping.
+[4/5] Linking dependencies...
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "go-ipfs-dep@*".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs@*".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs-http-client@*".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/tools > @openzeppelin/gsn-helpers@0.2.3" has unmet peer dependency "chai@^4.2.0".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/ui > @toruslabs/torus-embed@1.7.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/ui > react-router-sitemap@1.2.0" has unmet peer dependency "react-router@^2.3.0 || ^3.2.1 || ^4.3.0".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/sdk > @augurproject/indexeddbshim > typeson@5.18.2" has unmet peer dependency "core-js-bundle@^3.6.4".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/fetch-node-details@2.3.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/torus.js@2.2.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/ui > enzyme-adapter-react-16 > react-test-renderer@16.13.1" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-820f5244-23fe-4a9a-938e-cec7f9e657d7 > @augurproject/sdk > @augurproject/indexeddbshim > typeson-registry > base64-arraybuffer-es6@0.5.0" has unmet peer dependency "core-js-bundle@^3.1.3".
+[5/5] Building fresh packages...
+Done in 87.21s.
++ make build-contracts
+yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+success Already up-to-date.
+Done in 1.83s.
+yarn build
+yarn run v1.22.19
+$ tsc -b
+Done in 29.29s.
+python3 -m pip install virtualenv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /usr/lib/python3.10/site-packages (20.16.7)
+Requirement already satisfied: filelock<4,>=3.4.1 in /usr/lib/python3.10/site-packages (from virtualenv) (3.9.0)
+Requirement already satisfied: platformdirs<3,>=2.4 in /usr/lib/python3.10/site-packages (from virtualenv) (2.5.2)
+Requirement already satisfied: distlib<1,>=0.3.6 in /usr/lib/python3.10/site-packages (from virtualenv) (0.3.6)
+python3 -m venv venv
+. venv/bin/activate; \
+python3 -m pip install -r packages/augur-core/requirements.txt; \
+yarn workspace @augurproject/core build:contracts; \
+deactivate
+Collecting atomicwrites==1.3.0
+  Using cached atomicwrites-1.3.0-py2.py3-none-any.whl (5.9 kB)
+Collecting attrdict==2.0.1
+  Using cached attrdict-2.0.1-py2.py3-none-any.whl (9.9 kB)
+Collecting attrs==19.1.0
+  Using cached attrs-19.1.0-py2.py3-none-any.whl (35 kB)
+Collecting augur-solidity-flattener==0.2.5
+  Using cached augur_solidity_flattener-0.2.5-py2.py3-none-any.whl (4.4 kB)
+Collecting base58==1.0.3
+  Using cached base58-1.0.3-py3-none-any.whl (3.1 kB)
+Collecting blake2b-py==0.1.3
+  Using cached blake2b_py-0.1.3-cp38-cp38-manylinux1_x86_64.whl (709 kB)
+Collecting cached-property==1.5.1
+  Using cached cached_property-1.5.1-py2.py3-none-any.whl (6.0 kB)
+Collecting certifi==2019.9.11
+  Using cached certifi-2019.9.11-py2.py3-none-any.whl (154 kB)
+Collecting chardet==3.0.4
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting cytoolz==0.10.1
+  Using cached cytoolz-0.10.1.tar.gz (475 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting eth-abi==2.0.0
+  Using cached eth_abi-2.0.0-py3-none-any.whl (27 kB)
+Collecting eth-account==0.4.0
+  Using cached eth_account-0.4.0-py3-none-any.whl (26 kB)
+Collecting eth-bloom==1.0.3
+  Using cached eth_bloom-1.0.3-py3-none-any.whl (5.4 kB)
+Collecting eth-hash[pycryptodome]==0.2.0
+  Using cached eth_hash-0.2.0-py3-none-any.whl (7.2 kB)
+Collecting eth-keyfile==0.5.1
+  Using cached eth_keyfile-0.5.1-py3-none-any.whl (8.3 kB)
+Collecting eth-keys==0.2.4
+  Using cached eth_keys-0.2.4-py3-none-any.whl (24 kB)
+Collecting eth-rlp==0.1.2
+  Using cached eth_rlp-0.1.2-py3-none-any.whl (6.5 kB)
+Collecting eth-tester==0.4.0b1
+  Using cached eth_tester-0.4.0b1-py3-none-any.whl (58 kB)
+Collecting eth-typing==2.2.1
+  Using cached eth_typing-2.2.1-py3-none-any.whl (5.1 kB)
+Collecting eth-utils==1.8.4
+  Using cached eth_utils-1.8.4-py3-none-any.whl (23 kB)
+Collecting gprof2dot==2017.9.19
+  Using cached gprof2dot-2017.9.19.tar.gz (23 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting hexbytes==0.2.0
+  Using cached hexbytes-0.2.0-py3-none-any.whl (5.3 kB)
+Collecting idna==2.8
+  Using cached idna-2.8-py2.py3-none-any.whl (58 kB)
+Collecting importlib-metadata==0.23
+  Using cached importlib_metadata-0.23-py2.py3-none-any.whl (28 kB)
+Collecting ipfshttpclient==0.4.12
+  Using cached ipfshttpclient-0.4.12-py2.py3-none-any.whl (157 kB)
+Collecting jsonschema==3.2.0
+  Using cached jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+Collecting lru-dict==1.1.6
+  Using cached lru-dict-1.1.6.tar.gz (9.4 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting more-itertools==7.2.0
+  Using cached more_itertools-7.2.0-py3-none-any.whl (57 kB)
+Collecting multiaddr==0.0.8
+  Using cached multiaddr-0.0.8-py2.py3-none-any.whl (15 kB)
+Collecting mypy-extensions==0.4.1
+  Using cached mypy_extensions-0.4.1-py2.py3-none-any.whl (3.6 kB)
+Collecting netaddr==0.7.19
+  Using cached netaddr-0.7.19-py2.py3-none-any.whl (1.6 MB)
+Collecting numpy==1.18.3
+  Using cached numpy-1.18.3-cp38-cp38-manylinux1_x86_64.whl (20.6 MB)
+Collecting packaging==19.2
+  Using cached packaging-19.2-py2.py3-none-any.whl (30 kB)
+Collecting parsimonious==0.8.1
+  Using cached parsimonious-0.8.1.tar.gz (45 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pluggy==0.13.0
+  Using cached pluggy-0.13.0-py2.py3-none-any.whl (17 kB)
+Collecting protobuf==3.11.2
+  Using cached protobuf-3.11.2-cp38-cp38-manylinux1_x86_64.whl (1.3 MB)
+Collecting py-ecc==1.7.1
+  Using cached py_ecc-1.7.1-py3-none-any.whl (33 kB)
+Collecting py-evm==0.3.0a14
+  Using cached py_evm-0.3.0a14-py3-none-any.whl (231 kB)
+Collecting py-geth==2.2.0
+  Using cached py_geth-2.2.0-py3-none-any.whl (26 kB)
+Collecting py-solc==1.4.0
+  Using cached py_solc-1.4.0-py3-none-any.whl (14 kB)
+Collecting py==1.8.0
+  Using cached py-1.8.0-py2.py3-none-any.whl (83 kB)
+Collecting pycryptodome==3.9.0
+  Using cached pycryptodome-3.9.0.tar.gz (11.6 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pyethash==0.1.27
+  Using cached pyethash-0.1.27.tar.gz (38 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pyparsing==2.4.2
+  Using cached pyparsing-2.4.2-py2.py3-none-any.whl (65 kB)
+Collecting pyrsistent==0.15.6
+  Using cached pyrsistent-0.15.6.tar.gz (107 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pysha3==1.0.2
+  Using cached pysha3-1.0.2.tar.gz (829 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytest-profiling==1.2.11
+  Using cached pytest-profiling-1.2.11.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytest==4.6.5
+  Using cached pytest-4.6.5-py2.py3-none-any.whl (230 kB)
+Collecting requests==2.22.0
+  Using cached requests-2.22.0-py2.py3-none-any.whl (57 kB)
+Collecting rlp==1.1.0
+  Using cached rlp-1.1.0-py2.py3-none-any.whl (18 kB)
+Collecting semantic-version==2.8.2
+  Using cached semantic_version-2.8.2-py2.py3-none-any.whl (15 kB)
+Collecting six==1.12.0
+  Using cached six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting toolz==0.10.0
+  Using cached toolz-0.10.0.tar.gz (49 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting trie==1.4.0
+  Using cached trie-1.4.0-py3-none-any.whl (25 kB)
+Collecting typing-extensions==3.7.4.1
+  Using cached typing_extensions-3.7.4.1-py3-none-any.whl (20 kB)
+Collecting urllib3==1.25.5
+  Using cached urllib3-1.25.5-py2.py3-none-any.whl (125 kB)
+Collecting varint==1.0.2
+  Using cached varint-1.0.2.tar.gz (1.9 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting virtualenv==15.2.0
+  Using cached virtualenv-15.2.0-py2.py3-none-any.whl (2.6 MB)
+Collecting wcwidth==0.1.7
+  Using cached wcwidth-0.1.7-py2.py3-none-any.whl (21 kB)
+Collecting web3==5.6.0
+  Using cached web3-5.6.0-py3-none-any.whl (459 kB)
+Collecting websockets==8.1
+  Using cached websockets-8.1-cp38-cp38-manylinux2010_x86_64.whl (78 kB)
+Collecting zipp==0.6.0
+  Using cached zipp-0.6.0-py2.py3-none-any.whl (4.1 kB)
+Requirement already satisfied: setuptools in ./venv/lib/python3.8/site-packages (from jsonschema==3.2.0->-r packages/augur-core/requirements.txt (line 32)) (56.0.0)
+Using legacy 'setup.py install' for cytoolz, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for gprof2dot, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for lru-dict, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for parsimonious, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pycryptodome, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pyethash, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pyrsistent, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pysha3, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pytest-profiling, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for toolz, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for varint, since package 'wheel' is not installed.
+Installing collected packages: wcwidth, virtualenv, varint, typing-extensions, pysha3, pyethash, netaddr, mypy-extensions, lru-dict, gprof2dot, chardet, certifi, cached-property, blake2b-py, base58, augur-solidity-flattener, websockets, urllib3, toolz, six, semantic-version, pyparsing, pycryptodome, py, pluggy, numpy, more-itertools, idna, eth-typing, eth-hash, attrs, atomicwrites, zipp, requests, pyrsistent, py-solc, py-geth, protobuf, parsimonious, packaging, multiaddr, eth-bloom, cytoolz, attrdict, jsonschema, ipfshttpclient, importlib-metadata, eth-utils, rlp, pytest, py-ecc, hexbytes, eth-keys, eth-abi, trie, pytest-profiling, eth-tester, eth-rlp, eth-keyfile, py-evm, eth-account, web3
+  Running setup.py install for varint: started
+  Running setup.py install for varint: finished with status 'done'
+  Running setup.py install for pysha3: started
+  Running setup.py install for pysha3: finished with status 'done'
+  Running setup.py install for pyethash: started
+  Running setup.py install for pyethash: finished with status 'done'
+  Running setup.py install for lru-dict: started
+  Running setup.py install for lru-dict: finished with status 'done'
+  Running setup.py install for gprof2dot: started
+  Running setup.py install for gprof2dot: finished with status 'done'
+  Running setup.py install for toolz: started
+  Running setup.py install for toolz: finished with status 'done'
+  Running setup.py install for pycryptodome: started
+  Running setup.py install for pycryptodome: finished with status 'done'
+  Running setup.py install for pyrsistent: started
+  Running setup.py install for pyrsistent: finished with status 'done'
+  Running setup.py install for parsimonious: started
+  Running setup.py install for parsimonious: finished with status 'done'
+  Running setup.py install for cytoolz: started
+  Running setup.py install for cytoolz: finished with status 'done'
+  Running setup.py install for pytest-profiling: started
+  Running setup.py install for pytest-profiling: finished with status 'done'
+Successfully installed atomicwrites-1.3.0 attrdict-2.0.1 attrs-19.1.0 augur-solidity-flattener-0.2.5 base58-1.0.3 blake2b-py-0.1.3 cached-property-1.5.1 certifi-2019.9.11 chardet-3.0.4 cytoolz-0.10.1 eth-abi-2.0.0 eth-account-0.4.0 eth-bloom-1.0.3 eth-hash-0.2.0 eth-keyfile-0.5.1 eth-keys-0.2.4 eth-rlp-0.1.2 eth-tester-0.4.0b1 eth-typing-2.2.1 eth-utils-1.8.4 gprof2dot-2017.9.19 hexbytes-0.2.0 idna-2.8 importlib-metadata-0.23 ipfshttpclient-0.4.12 jsonschema-3.2.0 lru-dict-1.1.6 more-itertools-7.2.0 multiaddr-0.0.8 mypy-extensions-0.4.1 netaddr-0.7.19 numpy-1.18.3 packaging-19.2 parsimonious-0.8.1 pluggy-0.13.0 protobuf-3.11.2 py-1.8.0 py-ecc-1.7.1 py-evm-0.3.0a14 py-geth-2.2.0 py-solc-1.4.0 pycryptodome-3.9.0 pyethash-0.1.27 pyparsing-2.4.2 pyrsistent-0.15.6 pysha3-1.0.2 pytest-4.6.5 pytest-profiling-1.2.11 requests-2.22.0 rlp-1.1.0 semantic-version-2.8.2 six-1.12.0 toolz-0.10.0 trie-1.4.0 typing-extensions-3.7.4.1 urllib3-1.25.5 varint-1.0.2 virtualenv-15.2.0 wcwidth-0.1.7 web3-5.6.0 websockets-8.1 zipp-0.6.0
+WARNING: You are using pip version 22.0.4; however, version 23.0.1 is available.
+You should consider upgrading via the '/home/tobias/.jenkins/workspace/Voter1-Deployment/venv/bin/python3 -m pip install --upgrade pip' command.
+yarn workspace v1.22.19
+yarn run v1.22.19
+$ node -r ts-node/register src/deployment/compileContracts.ts && npm run build:documentation
+Compiling contracts, this may take a minute...
+npm WARN lifecycle The node binary used for scripts is /tmp/yarn--1678400763707-0.1711188877850347/node but npm is using /home/tobias/.config/nvm/versions/node/v12.22.12/bin/node itself. Use the `--scripts-prepend-node-path` option to include the path for the node binary npm was executed with.
+
+> @augurproject/core@2.0.5 build:documentation /home/tobias/.jenkins/workspace/Voter1-Deployment/packages/augur-core
+> yarn solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+
+$ /home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/.bin/solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+Done in 54.80s.
+Done in 55.11s.
++ yarn tools flash deploy
+yarn run v1.22.19
+$ yarn workspace @augurproject/tools flash deploy
+$ ts-node ./src/flash/cli deploy
+Deploying:  {
+  isProduction: false,
+  enableFaucets: true,
+  normalTime: true,
+  writeArtifacts: true,
+  serial: true
+}
+Processing 66 contracts
+Processing contract: ERC1155Proxy
+Processing contract: ERC20Proxy
+Processing contract: ERC721Proxy
+Processing contract: MultiAssetProxy
+Processing contract: ChaiBridge
+Processing contract: Coordinator
+Processing contract: CoordinatorRegistry
+Processing contract: DevUtils
+Processing contract: WETH9
+Processing contract: ZRXToken
+Processing contract: Exchange
+Processing contract: Augur
+Processing contract: AugurWallet
+Processing contract: AugurWalletRegistry
+Processing contract: AugurWalletRegistryV2
+Processing contract: Cash
+Processing contract: LegacyReputationToken
+Processing contract: TestNetReputationToken
+Processing contract: Time
+Processing contract: TimeControlled
+Processing contract: USDC
+Processing contract: USDT
+Processing contract: WarpSync
+Processing contract: AugurWalletFactory
+Processing contract: DisputeCrowdsourcerFactory
+Processing contract: DisputeWindowFactory
+Processing contract: InitialReporterFactory
+Processing contract: MarketFactory
+Processing contract: OICashFactory
+Processing contract: ReputationTokenFactory
+Processing contract: TestNetReputationTokenFactory
+Processing contract: UniverseFactory
+Processing contract: RelayHub
+Processing contract: Penalizer
+Processing contract: RelayHubV2
+Processing contract: StakeManager
+Processing contract: AffiliateValidator
+Processing contract: Affiliates
+Processing contract: DisputeCrowdsourcer
+Processing contract: DisputeWindow
+Processing contract: InitialReporter
+Processing contract: Market
+Processing contract: OICash
+Processing contract: RepOracle
+Processing contract: ReputationToken
+Processing contract: ShareToken
+Processing contract: Universe
+Processing contract: AugurTrading
+Processing contract: CancelOrder
+Processing contract: CreateOrder
+Processing contract: FillOrder
+Processing contract: Orders
+Processing contract: ProfitLoss
+Processing contract: SimulateTrade
+Processing contract: Trade
+Processing contract: ZeroXTrade
+Processing contract: UniswapV2Factory
+Processing contract: UniswapV2Pair
+Processing contract: UniswapV2Router02
+Processing contract: AccountLoader
+Processing contract: AuditFunds
+Processing contract: BuyParticipationTokens
+Processing contract: Formulas
+Processing contract: HotLoading
+Processing contract: RedeemStake
+Processing contract: RepSymbol
+Uploading Augur Wallet Factory...
+Upload contract: AugurWalletFactory
+Error: sender doesn't have enough funds to send tx. The upfront cost is: 2431145200000000 and the sender's account only has: 0
+    at getResult (/home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/ethers/providers/json-rpc-provider.js:40:21)
+    at exports.XMLHttpRequest.request.onreadystatechange (/home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/ethers/utils/web.js:111:30)
+    at exports.XMLHttpRequest.dispatchEvent (/home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/xmlhttprequest/lib/XMLHttpRequest.js:591:25)
+    at setState (/home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/xmlhttprequest/lib/XMLHttpRequest.js:610:14)
+    at IncomingMessage.<anonymous> (/home/tobias/.jenkins/workspace/Voter1-Deployment/node_modules/xmlhttprequest/lib/XMLHttpRequest.js:447:13)
+    at IncomingMessage.emit (events.js:326:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:483:12)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: -32000,
+  data: {
+    stack: "Error: sender doesn't have enough funds to send tx. The upfront cost is: 2431145200000000 and the sender's account only has: 0\n" +
+      '    at t.<anonymous> (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2008456)\n' +
+      '    at /home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2007756\n' +
+      '    at Object.next (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2007861)\n' +
+      '    at c (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2006575)\n' +
+      '    at processTicksAndRejections (node:internal/process/task_queues:95:5)',
+    name: 'Error'
+  },
+  url: 'http://localhost:8545',
+  body: '{"method":"eth_sendRawTransaction","params":["0xf923e280844190ab008321b9548080b9238a60806040526000805460ff1916905534801561001a57600080fd5b506123608061002a6000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c80636c9fa59e1161008c57806380a359301161006657806380a35930146101c35780638e1bfa73146101e9578063961be391146101f1578063ee89dab4146101f9576100ea565b80636c9fa59e1461017d5780637a0d8f8a146101855780637c00e2ce1461018d576100ea565b8063485cc955116100c8578063485cc95514610123578063519e62d9146101655780635c1ad8441461016d5780636512e6ec14610175576100ea565b80631a505b76146100ef57806328c1fed0146101135780633f03842a1461011b575b600080fd5b6100f7610201565b604080516001600160a01b039092168252519081900360200190f35b6100f7610210565b6100f761021f565b6101516004803603604081101561013957600080fd5b506001600160a01b038135811691602001351661022e565b604080519115158252519081900360200190f35b6100f7610749565b6100f7610758565b6100f7610767565b6100f7610776565b6100f7610785565b6100f7600480360360608110156101a357600080fd5b506001600160a01b03813581169160208101359091169060400135610799565b6100f7600480360360208110156101d957600080fd5b50356001600160a01b0316610ae6565b6100f7610c0f565b6100f7610c1e565b610151610c2d565b6007546001600160a01b031681565b6008546001600160a01b031681565b6003546001600160a01b031681565b6000805460ff161561023f57600080fd5b610247610c36565b60008054610100600160a81b0319166101006001600160a01b038616908102919091179091556040805163f39ec1f760e01b815263086c2e6d60e31b6004820152905163f39ec1f791602480820192602092909190829003018186803b1580156102b057600080fd5b505afa1580156102c4573d6000803e3d6000fd5b505050506040513d60208110156102da57600080fd5b5051600280546001600160a01b0319166001600160a01b039283161790556000546040805163f39ec1f760e01b815269416666696c696174657360b01b600482015290516101009092049092169163f39ec1f7916024808301926020929190829003018186803b15801561034d57600080fd5b505afa158015610361573d6000803e3d6000fd5b505050506040513d602081101561037757600080fd5b5051600380546001600160a01b0319166001600160a01b039283161790556000546040805163f39ec1f760e01b81526929b430b932aa37b5b2b760b11b600482015290516101009092049092169163f39ec1f7916024808301926020929190829003018186803b1580156103ea57600080fd5b505afa1580156103fe573d6000803e3d6000fd5b505050506040513d602081101561041457600080fd5b5051600480546001600160a01b039283166001600160a01b03199182161782556001805493861693909116831790556040805163f39ec1f760e01b81526a21b932b0ba32a7b93232b960a91b928101929092525163f39ec1f791602480820192602092909190829003018186803b15801561048e57600080fd5b505afa1580156104a2573d6000803e3d6000fd5b505050506040513d60208110156104b857600080fd5b5051600580546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b8152682334b63627b93232b960b91b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b15801561052257600080fd5b505afa158015610536573d6000803e3d6000fd5b505050506040513d602081101561054c57600080fd5b5051600680546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b8152695a65726f58547261646560b01b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b1580156105b757600080fd5b505afa1580156105cb573d6000803e3d6000fd5b505050506040513d60208110156105e157600080fd5b5051600780546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b815272417567757257616c6c6574526567697374727960681b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b15801561065557600080fd5b505afa158015610669573d6000803e3d6000fd5b505050506040513d602081101561067f57600080fd5b5051600880546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b81527420bab3bab92bb0b63632ba2932b3b4b9ba393cab1960591b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b1580156106f557600080fd5b505afa158015610709573d6000803e3d6000fd5b505050506040513d602081101561071f57600080fd5b5051600980546001600160a01b0319166001600160a01b0390921691909117905550600192915050565b6009546001600160a01b031681565b6006546001600160a01b031681565b6005546001600160a01b031681565b6004546001600160a01b031681565b60005461010090046001600160a01b031681565b6000806107a585610ae6565b90506107b9816001600160a01b0316610c55565b156107c5579050610adf565b60408051606087811b6001600160601b031916602080840191909152835160148185030181526034840194859052805191012092909161080790605401610c5b565b6020820181038252601f19601f820116604052506040516020018082805190602001908083835b6020831061084d5780518252601f19909201916020918201910161082e565b6001836020036101000a0380198251168184511680821785525050505050509050019150506040516020818303038152906040529050818151826020016000f59250823b61089a57600080fd5b50506000819050806001600160a01b031663d688e8e5878787600060019054906101000a90046001600160a01b0316600860009054906101000a90046001600160a01b0316600960009054906101000a90046001600160a01b0316600260009054906101000a90046001600160a01b0316600360009054906101000a90046001600160a01b0316600460009054906101000a90046001600160a01b0316600560009054906101000a90046001600160a01b0316600660009054906101000a90046001600160a01b0316600760009054906101000a90046001600160a01b03166040518d63ffffffff1660e01b8152600401808d6001600160a01b03166001600160a01b031681526020018c6001600160a01b03166001600160a01b031681526020018b81526020018a6001600160a01b03166001600160a01b03168152602001896001600160a01b03166001600160a01b03168152602001886001600160a01b03166001600160a01b03168152602001876001600160a01b03166001600160a01b03168152602001866001600160a01b03166001600160a01b03168152602001856001600160a01b03166001600160a01b03168152602001846001600160a01b03166001600160a01b03168152602001836001600160a01b03166001600160a01b03168152602001826001600160a01b03166001600160a01b031681526020019c50505050505050505050505050600060405180830381600087803b158015610ac257600080fd5b505af1158015610ad6573d6000803e3d6000fd5b50929450505050505b9392505050565b604080516001600160601b0319606084901b1660208083019190915282518083036014018152603483019384905280519101206000926001600160f81b03199283913091849190610b3990605401610c5b565b6020820181038252601f19601f820116604052506040516020018082805190602001908083835b60208310610b7f5780518252601f199092019160209182019101610b60565b51815160209384036101000a60001901801990921691161790526040805192909401828103601f190183528085528251928201929092206001600160f81b0319999099168282015260609790971b6001600160601b031916602182015260358101959095525060558085019690965280518085039096018652607590930190925250508151910120949350505050565b6001546001600160a01b031681565b6002546001600160a01b031681565b60005460ff1690565b60005460ff1615610c4657600080fd5b6000805460ff19166001179055565b3b151590565b6116c380610c698339019056fe60806040526000805460ff1916905534801561001a57600080fd5b506116998061002a6000396000f3fe6080604052600436106100f35760003560e01c80636b8d7a121161008a578063cbdad2a111610059578063cbdad2a1146104b0578063d688e8e5146104e3578063ee89dab414610571578063f698da2514610586576100f3565b80636b8d7a12146103a65780637b10399914610431578063961be39114610462578063c067e26314610477576100f3565b80631db61b54116100c65780631db61b541461024a57806320c13b0b1461025f578063360d95b6146103475780634dd78b761461037a576100f3565b80630283e758146100f557806304f86da11461013c578063054d50d4146101635780630a1028c414610199575b005b34801561010157600080fd5b506101286004803603602081101561011857600080fd5b50356001600160a01b031661059b565b604080519115158252519081900360200190f35b34801561014857600080fd5b50610151610601565b60408051918252519081900360200190f35b34801561016f57600080fd5b506101516004803603606081101561018657600080fd5b5080359060208101359060400135610625565b3480156101a557600080fd5b50610151600480360360208110156101bc57600080fd5b810190602081018135600160201b8111156101d657600080fd5b8201836020820111156101e857600080fd5b803590602001918460018302840111600160201b8311171561020957600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506106b1945050505050565b34801561025657600080fd5b5061015161073c565b34801561026b57600080fd5b5061032a6004803603604081101561028257600080fd5b810190602081018135600160201b81111561029c57600080fd5b8201836020820111156102ae57600080fd5b803590602001918460018302840111600160201b831117156102cf57600080fd5b919390929091602081019035600160201b8111156102ec57600080fd5b8201836020820111156102fe57600080fd5b803590602001918460018302840111600160201b8311171561031f57600080fd5b509092509050610760565b604080516001600160e01b03199092168252519081900360200190f35b34801561035357600080fd5b506101286004803603602081101561036a57600080fd5b50356001600160a01b0316610983565b6101286004803603604081101561039057600080fd5b506001600160a01b038135169060200135610998565b3480156103b257600080fd5b50610128600480360360608110156103c957600080fd5b6001600160a01b038235169190810190604081016020820135600160201b8111156103f357600080fd5b82018360208201111561040557600080fd5b803590602001918460018302840111600160201b8311171561042657600080fd5b919350915035610ee2565b34801561043d57600080fd5b50610446610f73565b604080516001600160a01b039092168252519081900360200190f35b34801561046e57600080fd5b50610446610f87565b34801561048357600080fd5b506100f36004803603604081101561049a57600080fd5b506001600160a01b038135169060200135610f96565b3480156104bc57600080fd5b50610128600480360360208110156104d357600080fd5b50356001600160a01b031661103c565b3480156104ef57600080fd5b506100f3600480360361018081101561050757600080fd5b506001600160a01b03813581169160208101358216916040820135916060810135821691608082013581169160a081013582169160c082013581169160e08101358216916101008201358116916101208101358216916101408201358116916101600135166110a0565b34801561057d57600080fd5b506101286115e1565b34801561059257600080fd5b506101516115ea565b6002546000906001600160a01b03163314806105c657503360009081526001602052604090205460ff165b806105d057503330145b6105d957600080fd5b506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b7fe0e790a7bae5fba0106cf286392dd87dfd6ec8631e5631988133e4470b9e7b0d81565b600080841161063357600080fd5b6000831180156106435750600082115b61064c57600080fd5b6000610660856103e563ffffffff6115f016565b90506000610674828563ffffffff6115f016565b9050600061069a8361068e886103e863ffffffff6115f016565b9063ffffffff61161e16565b90508082816106a557fe5b04979650505050505050565b8051602091820120604080517fe0e790a7bae5fba0106cf286392dd87dfd6ec8631e5631988133e4470b9e7b0d8185015280820192909252805180830382018152606083018252805190840120600354601960f81b6080850152600160f81b6081850152608284015260a2808401919091528151808403909101815260c29092019052805191012090565b7f035aff83d86937d35b32e04f0ddc6ff469290eef2f1b692d8a815c89404d474981565b6000806107a286868080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152506106b192505050565b905060418310156107fa576040805162461bcd60e51b815260206004820152601f60248201527f5369676e61747572652064617461206c656e67746820696e636f727265637400604482015290519081900360640190fd5b6000806000606087878080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050602081015193506040810151925060ff604182015116915060018560405160200180807f19457468657265756d205369676e6564204d6573736167653a0a333200000000815250601c018281526020019150506040516020818303038152906040528051906020012083868660405160008152602001604052604051808581526020018460ff1660ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa15801561090b573d6000803e3d6000fd5b5050604051601f1901516002546001600160a01b03908116911614905061096d576040805162461bcd60e51b8152602060048201526011602482015270496e76616c6964205369676e617475726560781b604482015290519081900360640190fd5b506320c13b0b60e01b9998505050505050505050565b60016020526000908152604090205460ff1681565b6002546000906001600160a01b031633146109b257600080fd5b60008060019054906101000a90046001600160a01b03166001600160a01b03166353e569a16040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610a0357600080fd5b505af1158015610a17573d6000803e3d6000fd5b505050506040513d6020811015610a2d57600080fd5b505160008054604080516315ab88c960e31b8152905193945091926101009091046001600160a01b03169163ad5c464891600480830192602092919082900301818787803b158015610a7e57600080fd5b505af1158015610a92573d6000803e3d6000fd5b505050506040513d6020811015610aa857600080fd5b50516000805460408051633db3641560e11b8152905193945091926101009091046001600160a01b031691637b66c82a91600480830192602092919082900301818787803b158015610af957600080fd5b505af1158015610b0d573d6000803e3d6000fd5b505050506040513d6020811015610b2357600080fd5b505160408051630240bc6b60e21b815290519192504791600091829182916001600160a01b03891691630902f1ac91600480820192606092909190829003018186803b158015610b7257600080fd5b505afa158015610b86573d6000803e3d6000fd5b505050506040513d6060811015610b9c57600080fd5b508051602082015160409092015190945090925090506000610be98587610bc35785610bc5565b845b6001600160701b031688610bd95785610bdb565b865b6001600160701b0316610625565b90506000610c1586610c0984670de0b6b3a764000063ffffffff6115f016565b9063ffffffff61163016565b9050808b1115610c64576040805162461bcd60e51b815260206004820152601560248201527445786368616e6765207261746520746f6f206c6f7760581b604482015290519081900360640190fd5b876001600160a01b031663d0e30db0876040518263ffffffff1660e01b81526004016000604051808303818588803b158015610c9f57600080fd5b505af1158015610cb3573d6000803e3d6000fd5b50506040805163a9059cbb60e01b81526001600160a01b038e81166004830152602482018c90529151918d16945063a9059cbb935060448082019350602092918290030181600087803b158015610d0957600080fd5b505af1158015610d1d573d6000803e3d6000fd5b505050506040513d6020811015610d3357600080fd5b50506001600160a01b03891663022c0d9f88610d50576000610d52565b835b89610d5d5784610d60565b60005b604080516001600160e01b031960e086901b1681526004810193909352602483019190915230604483015260806064830152600060848301819052905160c48084019382900301818387803b158015610db857600080fd5b505af1158015610dcc573d6000803e3d6000fd5b505060048054604080516370a0823160e01b81523093810193909352516001600160a01b03909116935063a9059cbb92508f9184916370a0823191602480820192602092909190829003018186803b158015610e2757600080fd5b505afa158015610e3b573d6000803e3d6000fd5b505050506040513d6020811015610e5157600080fd5b5051604080516001600160e01b031960e086901b1681526001600160a01b03909316600484015260248301919091525160448083019260209291908290030181600087803b158015610ea257600080fd5b505af1158015610eb6573d6000803e3d6000fd5b505050506040513d6020811015610ecc57600080fd5b5060019a50505050505050505050505b92915050565b3360009081526001602052604081205460ff16610efe57600080fd5b60006060866001600160a01b0316848787604051808383808284376040519201945060009350909150508083038185875af1925050503d8060008114610f60576040519150601f19603f3d011682016040523d82523d6000602084013e610f65565b606091505b509098975050505050505050565b60005461010090046001600160a01b031681565b6004546001600160a01b031681565b3360009081526001602052604090205460ff16610fb257600080fd5b600480546040805163a9059cbb60e01b81526001600160a01b0386811694820194909452602481018590529051929091169163a9059cbb916044808201926020929091908290030181600087803b15801561100c57600080fd5b505af1158015611020573d6000803e3d6000fd5b505050506040513d602081101561103657600080fd5b50505050565b6002546000906001600160a01b031633148061106757503360009081526001602052604090205460ff165b8061107157503330145b61107a57600080fd5b506001600160a01b03166000908152600160208190526040909120805460ff1916905590565b60005460ff16156110b057600080fd5b6110b8611645565b7f035aff83d86937d35b32e04f0ddc6ff469290eef2f1b692d8a815c89404d474960001b3060405160200180838152602001826001600160a01b03166001600160a01b0316815260200192505050604051602081830303815290604052805190602001206003819055508b600260006101000a8154816001600160a01b0302191690836001600160a01b0316021790555086600060016101000a8154816001600160a01b0302191690836001600160a01b0316021790555060018060008a6001600160a01b03166001600160a01b0316815260200190815260200160002060006101000a81548160ff0219169083151502179055506001806000896001600160a01b03166001600160a01b0316815260200190815260200160002060006101000a81548160ff02191690831515021790555085600460006101000a8154816001600160a01b0302191690836001600160a01b03160217905550856001600160a01b031663095ea7b38a6000196040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b15801561127357600080fd5b505af1158015611287573d6000803e3d6000fd5b505050506040513d602081101561129d57600080fd5b50506040805163095ea7b360e01b81526001600160a01b038581166004830152600019602483015291519188169163095ea7b3916044808201926020929091908290030181600087803b1580156112f357600080fd5b505af1158015611307573d6000803e3d6000fd5b505050506040513d602081101561131d57600080fd5b50506040805163a22cb46560e01b81526001600160a01b0385811660048301526001602483015291519186169163a22cb4659160448082019260009290919082900301818387803b15801561137157600080fd5b505af1158015611385573d6000803e3d6000fd5b50506040805163095ea7b360e01b81526001600160a01b03868116600483015260001960248301529151918a16935063095ea7b392506044808201926020929091908290030181600087803b1580156113dd57600080fd5b505af11580156113f1573d6000803e3d6000fd5b505050506040513d602081101561140757600080fd5b50506040805163a22cb46560e01b81526001600160a01b0384811660048301526001602483015291519186169163a22cb4659160448082019260009290919082900301818387803b15801561145b57600080fd5b505af115801561146f573d6000803e3d6000fd5b50506040805163095ea7b360e01b81526001600160a01b03858116600483015260001960248301529151918a16935063095ea7b392506044808201926020929091908290030181600087803b1580156114c757600080fd5b505af11580156114db573d6000803e3d6000fd5b505050506040513d60208110156114f157600080fd5b50506040805163162c2e5560e21b8152600481018c905290516001600160a01b038716916358b0b95491602480830192600092919082900301818387803b15801561153b57600080fd5b505af115801561154f573d6000803e3d6000fd5b505050506001600160a01b038b16156115d357846001600160a01b031663a18a7bfc8c6040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050600060405180830381600087803b1580156115ba57600080fd5b505af11580156115ce573d6000803e3d6000fd5b505050505b505050505050505050505050565b60005460ff1690565b60035481565b6000826115ff57506000610edc565b8282028284828161160c57fe5b041461161757600080fd5b9392505050565b60008282018381101561161757600080fd5b60008082848161163c57fe5b04949350505050565b60005460ff161561165557600080fd5b6000805460ff1916600117905556fea265627a7a7231582075a0db3a6ba26d5f6db1b77a562b56184a45b399fc268ee96176917d1b91f1c964736f6c634300050f0032a265627a7a72315820a0bdf254a0b3c259be2e9fa7bbff5278d64a6cb3501d799186405c410b2b21fb64736f6c634300050f003286030d90eb2d12a0880bf578753088eefb290a0550f5d32477334dce19749a9966a2b0c9530c408fa0472b6bee865bf2773485f4eca3b39841097f555b135751384813b40402c66337"],"id":52,"jsonrpc":"2.0"}',
+  responseText: `{"id":52,"jsonrpc":"2.0","error":{"message":"sender doesn't have enough funds to send tx. The upfront cost is: 2431145200000000 and the sender's account only has: 0","code":-32000,"data":{"stack":"Error: sender doesn't have enough funds to send tx. The upfront cost is: 2431145200000000 and the sender's account only has: 0\\n    at t.<anonymous> (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2008456)\\n    at /home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2007756\\n    at Object.next (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2007861)\\n    at c (/home/tobias/.config/nvm/versions/node/v18.13.0/lib/node_modules/ganache-cli/build/ganache-core.node.cli.js:55:2006575)\\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)","name":"Error"}}}`,
+  transaction: {
+    nonce: 0,
+    gasPrice: BigNumber { _hex: '0x4190ab00' },
+    gasLimit: BigNumber { _hex: '0x21b954' },
+    to: null,
+    value: BigNumber { _hex: '0x00' },
+    data: '0x60806040526000805460ff1916905534801561001a57600080fd5b506123608061002a6000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c80636c9fa59e1161008c57806380a359301161006657806380a35930146101c35780638e1bfa73146101e9578063961be391146101f1578063ee89dab4146101f9576100ea565b80636c9fa59e1461017d5780637a0d8f8a146101855780637c00e2ce1461018d576100ea565b8063485cc955116100c8578063485cc95514610123578063519e62d9146101655780635c1ad8441461016d5780636512e6ec14610175576100ea565b80631a505b76146100ef57806328c1fed0146101135780633f03842a1461011b575b600080fd5b6100f7610201565b604080516001600160a01b039092168252519081900360200190f35b6100f7610210565b6100f761021f565b6101516004803603604081101561013957600080fd5b506001600160a01b038135811691602001351661022e565b604080519115158252519081900360200190f35b6100f7610749565b6100f7610758565b6100f7610767565b6100f7610776565b6100f7610785565b6100f7600480360360608110156101a357600080fd5b506001600160a01b03813581169160208101359091169060400135610799565b6100f7600480360360208110156101d957600080fd5b50356001600160a01b0316610ae6565b6100f7610c0f565b6100f7610c1e565b610151610c2d565b6007546001600160a01b031681565b6008546001600160a01b031681565b6003546001600160a01b031681565b6000805460ff161561023f57600080fd5b610247610c36565b60008054610100600160a81b0319166101006001600160a01b038616908102919091179091556040805163f39ec1f760e01b815263086c2e6d60e31b6004820152905163f39ec1f791602480820192602092909190829003018186803b1580156102b057600080fd5b505afa1580156102c4573d6000803e3d6000fd5b505050506040513d60208110156102da57600080fd5b5051600280546001600160a01b0319166001600160a01b039283161790556000546040805163f39ec1f760e01b815269416666696c696174657360b01b600482015290516101009092049092169163f39ec1f7916024808301926020929190829003018186803b15801561034d57600080fd5b505afa158015610361573d6000803e3d6000fd5b505050506040513d602081101561037757600080fd5b5051600380546001600160a01b0319166001600160a01b039283161790556000546040805163f39ec1f760e01b81526929b430b932aa37b5b2b760b11b600482015290516101009092049092169163f39ec1f7916024808301926020929190829003018186803b1580156103ea57600080fd5b505afa1580156103fe573d6000803e3d6000fd5b505050506040513d602081101561041457600080fd5b5051600480546001600160a01b039283166001600160a01b03199182161782556001805493861693909116831790556040805163f39ec1f760e01b81526a21b932b0ba32a7b93232b960a91b928101929092525163f39ec1f791602480820192602092909190829003018186803b15801561048e57600080fd5b505afa1580156104a2573d6000803e3d6000fd5b505050506040513d60208110156104b857600080fd5b5051600580546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b8152682334b63627b93232b960b91b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b15801561052257600080fd5b505afa158015610536573d6000803e3d6000fd5b505050506040513d602081101561054c57600080fd5b5051600680546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b8152695a65726f58547261646560b01b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b1580156105b757600080fd5b505afa1580156105cb573d6000803e3d6000fd5b505050506040513d60208110156105e157600080fd5b5051600780546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b815272417567757257616c6c6574526567697374727960681b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b15801561065557600080fd5b505afa158015610669573d6000803e3d6000fd5b505050506040513d602081101561067f57600080fd5b5051600880546001600160a01b0319166001600160a01b039283161790556040805163f39ec1f760e01b81527420bab3bab92bb0b63632ba2932b3b4b9ba393cab1960591b600482015290519184169163f39ec1f791602480820192602092909190829003018186803b1580156106f557600080fd5b505afa158015610709573d6000803e3d6000fd5b505050506040513d602081101561071f57600080fd5b5051600980546001600160a01b0319166001600160a01b0390921691909117905550600192915050565b6009546001600160a01b031681565b6006546001600160a01b031681565b6005546001600160a01b031681565b6004546001600160a01b031681565b60005461010090046001600160a01b031681565b6000806107a585610ae6565b90506107b9816001600160a01b0316610c55565b156107c5579050610adf565b60408051606087811b6001600160601b031916602080840191909152835160148185030181526034840194859052805191012092909161080790605401610c5b565b6020820181038252601f19601f820116604052506040516020018082805190602001908083835b6020831061084d5780518252601f19909201916020918201910161082e565b6001836020036101000a0380198251168184511680821785525050505050509050019150506040516020818303038152906040529050818151826020016000f59250823b61089a57600080fd5b50506000819050806001600160a01b031663d688e8e5878787600060019054906101000a90046001600160a01b0316600860009054906101000a90046001600160a01b0316600960009054906101000a90046001600160a01b0316600260009054906101000a90046001600160a01b0316600360009054906101000a90046001600160a01b0316600460009054906101000a90046001600160a01b0316600560009054906101000a90046001600160a01b0316600660009054906101000a90046001600160a01b0316600760009054906101000a90046001600160a01b03166040518d63ffffffff1660e01b8152600401808d6001600160a01b03166001600160a01b031681526020018c6001600160a01b03166001600160a01b031681526020018b81526020018a6001600160a01b03166001600160a01b03168152602001896001600160a01b03166001600160a01b03168152602001886001600160a01b03166001600160a01b03168152602001876001600160a01b03166001600160a01b03168152602001866001600160a01b03166001600160a01b03168152602001856001600160a01b03166001600160a01b03168152602001846001600160a01b03166001600160a01b03168152602001836001600160a01b03166001600160a01b03168152602001826001600160a01b03166001600160a01b031681526020019c50505050505050505050505050600060405180830381600087803b158015610ac257600080fd5b505af1158015610ad6573d6000803e3d6000fd5b50929450505050505b9392505050565b604080516001600160601b0319606084901b1660208083019190915282518083036014018152603483019384905280519101206000926001600160f81b03199283913091849190610b3990605401610c5b565b6020820181038252601f19601f820116604052506040516020018082805190602001908083835b60208310610b7f5780518252601f199092019160209182019101610b60565b51815160209384036101000a60001901801990921691161790526040805192909401828103601f190183528085528251928201929092206001600160f81b0319999099168282015260609790971b6001600160601b031916602182015260358101959095525060558085019690965280518085039096018652607590930190925250508151910120949350505050565b6001546001600160a01b031681565b6002546001600160a01b031681565b60005460ff1690565b60005460ff1615610c4657600080fd5b6000805460ff19166001179055565b3b151590565b6116c380610c698339019056fe60806040526000805460ff1916905534801561001a57600080fd5b506116998061002a6000396000f3fe6080604052600436106100f35760003560e01c80636b8d7a121161008a578063cbdad2a111610059578063cbdad2a1146104b0578063d688e8e5146104e3578063ee89dab414610571578063f698da2514610586576100f3565b80636b8d7a12146103a65780637b10399914610431578063961be39114610462578063c067e26314610477576100f3565b80631db61b54116100c65780631db61b541461024a57806320c13b0b1461025f578063360d95b6146103475780634dd78b761461037a576100f3565b80630283e758146100f557806304f86da11461013c578063054d50d4146101635780630a1028c414610199575b005b34801561010157600080fd5b506101286004803603602081101561011857600080fd5b50356001600160a01b031661059b565b604080519115158252519081900360200190f35b34801561014857600080fd5b50610151610601565b60408051918252519081900360200190f35b34801561016f57600080fd5b506101516004803603606081101561018657600080fd5b5080359060208101359060400135610625565b3480156101a557600080fd5b50610151600480360360208110156101bc57600080fd5b810190602081018135600160201b8111156101d657600080fd5b8201836020820111156101e857600080fd5b803590602001918460018302840111600160201b8311171561020957600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506106b1945050505050565b34801561025657600080fd5b5061015161073c565b34801561026b57600080fd5b5061032a6004803603604081101561028257600080fd5b810190602081018135600160201b81111561029c57600080fd5b8201836020820111156102ae57600080fd5b803590602001918460018302840111600160201b831117156102cf57600080fd5b919390929091602081019035600160201b8111156102ec57600080fd5b8201836020820111156102fe57600080fd5b803590602001918460018302840111600160201b8311171561031f57600080fd5b509092509050610760565b604080516001600160e01b03199092168252519081900360200190f35b34801561035357600080fd5b506101286004803603602081101561036a57600080fd5b50356001600160a01b0316610983565b6101286004803603604081101561039057600080fd5b506001600160a01b038135169060200135610998565b3480156103b257600080fd5b50610128600480360360608110156103c957600080fd5b6001600160a01b038235169190810190604081016020820135600160201b8111156103f357600080fd5b82018360208201111561040557600080fd5b803590602001918460018302840111600160201b8311171561042657600080fd5b919350915035610ee2565b34801561043d57600080fd5b50610446610f73565b604080516001600160a01b039092168252519081900360200190f35b34801561046e57600080fd5b50610446610f87565b34801561048357600080fd5b506100f36004803603604081101561049a57600080fd5b506001600160a01b038135169060200135610f96565b3480156104bc57600080fd5b50610128600480360360208110156104d357600080fd5b50356001600160a01b031661103c565b3480156104ef57600080fd5b506100f3600480360361018081101561050757600080fd5b506001600160a01b03813581169160208101358216916040820135916060810135821691608082013581169160a081013582169160c082013581169160e08101358216916101008201358116916101208101358216916101408201358116916101600135166110a0565b34801561057d57600080fd5b506101286115e1565b34801561059257600080fd5b506101516115ea565b6002546000906001600160a01b03163314806105c657503360009081526001602052604090205460ff165b806105d057503330145b6105d957600080fd5b506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b7fe0e790a7bae5fba0106cf286392dd87dfd6ec8631e5631988133e4470b9e7b0d81565b600080841161063357600080fd5b6000831180156106435750600082115b61064c57600080fd5b6000610660856103e563ffffffff6115f016565b90506000610674828563ffffffff6115f016565b9050600061069a8361068e886103e863ffffffff6115f016565b9063ffffffff61161e16565b90508082816106a557fe5b04979650505050505050565b8051602091820120604080517fe0e790a7bae5fba0106cf286392dd87dfd6ec8631e5631988133e4470b9e7b0d8185015280820192909252805180830382018152606083018252805190840120600354601960f81b6080850152600160f81b6081850152608284015260a2808401919091528151808403909101815260c29092019052805191012090565b7f035aff83d86937d35b32e04f0ddc6ff469290eef2f1b692d8a815c89404d474981565b6000806107a286868080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152506106b192505050565b905060418310156107fa576040805162461bcd60e51b815260206004820152601f60248201527f5369676e61747572652064617461206c656e67746820696e636f727265637400604482015290519081900360640190fd5b6000806000606087878080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050602081015193506040810151925060ff604182015116915060018560405160200180807f19457468657265756d205369676e6564204d6573736167653a0a333200000000815250601c018281526020019150506040516020818303038152906040528051906020012083868660405160008152602001604052604051808581526020018460ff1660ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa15801561090b573d6000803e3d6000fd5b5050604051601f1901516002546001600160a01b03908116911614905061096d576040805162461bcd60e51b8152602060048201526011602482015270496e76616c6964205369676e617475726560781b604482015290519081900360640190fd5b506320c13b0b60e01b9998505050505050505050565b60016020526000908152604090205460ff1681565b6002546000906001600160a01b031633146109b257600080fd5b60008060019054906101000a90046001600160a01b03166001600160a01b03166353e569a16040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610a0357600080fd5b505af1158015610a17573d6000803e3d6000fd5b505050506040513d6020811015610a2d57600080fd5b505160008054604080516315ab88c960e31b8152905193945091926101009091046001600160a01b03169163ad5c464891600480830192602092919082900301818787803b158015610a7e57600080fd5b505af1158015610a92573d6000803e3d6000fd5b505050506040513d6020811015610aa857600080fd5b50516000805460408051633db3641560e11b8152905193945091926101009091046001600160a01b031691637b66c82a91600480830192602092919082900301818787803b158015610af957600080fd5b505af1158015610b0d573d6000803e3d6000fd5b505050506040513d6020811015610b2357600080fd5b505160408051630240bc6b60e21b815290519192504791600091829182916001600160a01b03891691630902f1ac91600480820192606092909190829003018186803b158015610b7257600080fd5b505afa158015610b86573d6000803e3d6000fd5b505050506040513d6060811015610b9c57600080fd5b508051602082015160409092015190945090925090506000610be98587610bc35785610bc5565b845b6001600160701b031688610bd95785610bdb565b865b6001600160701b0316610625565b90506000610c1586610c0984670de0b6b3a764000063ffffffff6115f016565b9063ffffffff61163016565b9050808b1115610c64576040805162461bcd60e51b815260206004820152601560248201527445786368616e6765207261746520746f6f206c6f7760581b604482015290519081900360640190fd5b876001600160a01b031663d0e30db0876040518263ffffffff1660e01b81526004016000604051808303818588803b158015610c9f57600080fd5b505af1158015610cb3573d6000803e3d6000fd5b50506040805163a9059cbb60e01b81526001600160a01b038e81166004830152602482018c90529151918d16945063a9059cbb935060448082019350602092918290030181600087803b158015610d0957600080fd5b505af1158015610d1d573d6000803e3d6000fd5b505050506040513d6020811015610d3357600080fd5b50506001600160a01b03891663022c0d9f88610d50576000610d52565b835b89610d5d5784610d60565b60005b604080516001600160e01b031960e086901b1681526004810193909352602483019190915230604483015260806064830152600060848301819052905160c48084019382900301818387803b158015610db857600080fd5b505af1158015610dcc573d6000803e3d6000fd5b505060048054604080516370a0823160e01b81523093810193909352516001600160a01b03909116935063a9059cbb92508f9184916370a0823191602480820192602092909190829003018186803b158015610e2757600080fd5b505afa158015610e3b573d6000803e3d6000fd5b505050506040513d6020811015610e5157600080fd5b5051604080516001600160e01b031960e086901b1681526001600160a01b03909316600484015260248301919091525160448083019260209291908290030181600087803b158015610ea257600080fd5b505af1158015610eb6573d6000803e3d6000fd5b505050506040513d6020811015610ecc57600080fd5b5060019a50505050505050505050505b92915050565b3360009081526001602052604081205460ff16610efe57600080fd5b60006060866001600160a01b0316848787604051808383808284376040519201945060009350909150508083038185875af1925050503d8060008114610f60576040519150601f19603f3d011682016040523d82523d6000602084013e610f65565b606091505b509098975050505050505050565b60005461010090046001600160a01b031681565b6004546001600160a01b031681565b3360009081526001602052604090205460ff16610fb257600080fd5b600480546040805163a9059cbb60e01b81526001600160a01b0386811694820194909452602481018590529051929091169163a9059cbb916044808201926020929091908290030181600087803b15801561100c57600080fd5b505af1158015611020573d6000803e3d6000fd5b505050506040513d602081101561103657600080fd5b50505050565b6002546000906001600160a01b031633148061106757503360009081526001602052604090205460ff165b8061107157503330145b61107a57600080fd5b506001600160a01b03166000908152600160208190526040909120805460ff1916905590565b60005460ff16156110b057600080fd5b6110b8611645565b7f035aff83d86937d35b32e04f0ddc6ff469290eef2f1b692d8a815c89404d474960001b3060405160200180838152602001826001600160a01b03166001600160a01b0316815260200192505050604051602081830303815290604052805190602001206003819055508b600260006101000a8154816001600160a01b0302191690836001600160a01b0316021790555086600060016101000a8154816001600160a01b0302191690836001600160a01b0316021790555060018060008a6001600160a01b03166001600160a01b0316815260200190815260200160002060006101000a81548160ff0219169083151502179055506001806000896001600160a01b03166001600160a01b0316815260200190815260200160002060006101000a81548160ff02191690831515021790555085600460006101000a8154816001600160a01b0302191690836001600160a01b03160217905550856001600160a01b031663095ea7b38a6000196040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b15801561127357600080fd5b505af1158015611287573d6000803e3d6000fd5b505050506040513d602081101561129d57600080fd5b50506040805163095ea7b360e01b81526001600160a01b038581166004830152600019602483015291519188169163095ea7b3916044808201926020929091908290030181600087803b1580156112f357600080fd5b505af1158015611307573d6000803e3d6000fd5b505050506040513d602081101561131d57600080fd5b50506040805163a22cb46560e01b81526001600160a01b0385811660048301526001602483015291519186169163a22cb4659160448082019260009290919082900301818387803b15801561137157600080fd5b505af1158015611385573d6000803e3d6000fd5b50506040805163095ea7b360e01b81526001600160a01b03868116600483015260001960248301529151918a16935063095ea7b392506044808201926020929091908290030181600087803b1580156113dd57600080fd5b505af11580156113f1573d6000803e3d6000fd5b505050506040513d602081101561140757600080fd5b50506040805163a22cb46560e01b81526001600160a01b0384811660048301526001602483015291519186169163a22cb4659160448082019260009290919082900301818387803b15801561145b57600080fd5b505af115801561146f573d6000803e3d6000fd5b50506040805163095ea7b360e01b81526001600160a01b03858116600483015260001960248301529151918a16935063095ea7b392506044808201926020929091908290030181600087803b1580156114c757600080fd5b505af11580156114db573d6000803e3d6000fd5b505050506040513d60208110156114f157600080fd5b50506040805163162c2e5560e21b8152600481018c905290516001600160a01b038716916358b0b95491602480830192600092919082900301818387803b15801561153b57600080fd5b505af115801561154f573d6000803e3d6000fd5b505050506001600160a01b038b16156115d357846001600160a01b031663a18a7bfc8c6040518263ffffffff1660e01b815260040180826001600160a01b03166001600160a01b03168152602001915050600060405180830381600087803b1580156115ba57600080fd5b505af11580156115ce573d6000803e3d6000fd5b505050505b505050505050505050505050565b60005460ff1690565b60035481565b6000826115ff57506000610edc565b8282028284828161160c57fe5b041461161757600080fd5b9392505050565b60008282018381101561161757600080fd5b60008082848161163c57fe5b04949350505050565b60005460ff161561165557600080fd5b6000805460ff1916600117905556fea265627a7a7231582075a0db3a6ba26d5f6db1b77a562b56184a45b399fc268ee96176917d1b91f1c964736f6c634300050f0032a265627a7a72315820a0bdf254a0b3c259be2e9fa7bbff5278d64a6cb3501d799186405c410b2b21fb64736f6c634300050f0032',
+    chainId: 1678400394871,
+    v: 3356800789778,
+    r: '0x880bf578753088eefb290a0550f5d32477334dce19749a9966a2b0c9530c408f',
+    s: '0x472b6bee865bf2773485f4eca3b39841097f555b135751384813b40402c66337',
+    from: '0x913dA4198E6bE1D5f5E4a40D0667f70C0B5430Eb',
+    hash: '0x4b146a1c484a91fadcd27d7b113a3daf5b2a6c6c5a43118cae4937513841d499'
+  },
+  transactionHash: '0x4b146a1c484a91fadcd27d7b113a3daf5b2a6c6c5a43118cae4937513841d499'
+}
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed.
+Exit code: 1
+Command: /home/tobias/.config/nvm/versions/node/v12.22.12/bin/node
+Arguments: /home/tobias/.config/nvm/versions/node/v12.22.12/lib/node_modules/yarn/lib/cli.js flash deploy
+Directory: /home/tobias/.jenkins/workspace/Voter1-Deployment/packages/augur-tools
+Output:
+
+info Visit https://yarnpkg.com/en/docs/cli/workspace for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+Run condition [Execute Shell] preventing perform for step [BuilderChain]
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] enabling perform for step [EthOps: voting]
+Getting givencontract address from environment
+Contract address: 0x51512Da76eB2FAa4102Dc9bc1455dE1878ddea2D
+Finished: SUCCESS

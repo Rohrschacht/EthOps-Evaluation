@@ -1,0 +1,58 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Deployment
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Voter1-Deployment/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+First time build. Skipping changelog.
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter1-Deployment] $ /bin/sh -xe /tmp/CommandInterpreterCondition3466699275672689825.sh
++ rm -f packages/augur-core/src/libraries/ContractDeployer.ts
++ git submodule add file:///home/tobias/sandbox/augur-voter1-deployment packages/augur-deployment
+Cloning into '/home/tobias/.jenkins/workspace/Voter1-Deployment/packages/augur-deployment'...
+fatal: transport 'file' not allowed
+fatal: clone of 'file:///home/tobias/sandbox/augur-voter1-deployment' into submodule path '/home/tobias/.jenkins/workspace/Voter1-Deployment/packages/augur-deployment' failed
+Run condition [Execute Shell] preventing perform for step [BuilderChain]
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] enabling perform for step [EthOps: voting]
+Getting givencontract address from environment
+Contract address: null
+ERROR: Build step failed with exception
+java.lang.NullPointerException: Cannot invoke "String.length()" because "val" is null
+	at java.base/java.math.BigInteger.<init>(BigInteger.java:483)
+	at org.web3j.utils.Numeric.toBigIntNoPrefix(Numeric.java:125)
+	at org.web3j.utils.Numeric.toBigInt(Numeric.java:121)
+	at org.web3j.abi.datatypes.Address.<init>(Address.java:47)
+	at de.tu_berlin.sbe.DevOpsRegistry.voteDeploymentProposal(DevOpsRegistry.java:214)
+	at io.jenkins.plugins.dapps.DappVoterBuilder.perform(DappVoterBuilder.java:135)
+Caused: java.lang.RuntimeException
+	at io.jenkins.plugins.dapps.DappVoterBuilder.perform(DappVoterBuilder.java:137)
+	at hudson.tasks.BuildStepCompatibilityLayer.perform(BuildStepCompatibilityLayer.java:80)
+	at org.jenkins_ci.plugins.run_condition.BuildStepRunner$2.run(BuildStepRunner.java:112)
+	at org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail.conditionalRun(BuildStepRunner.java:156)
+	at org.jenkins_ci.plugins.run_condition.BuildStepRunner.perform(BuildStepRunner.java:107)
+	at org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder.perform(SingleConditionalBuilder.java:108)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:818)
+	at hudson.model.Build$BuildExecution.build(Build.java:199)
+	at hudson.model.Build$BuildExecution.doRun(Build.java:164)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:526)
+	at hudson.model.Run.execute(Run.java:1900)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:44)
+	at hudson.model.ResourceController.execute(ResourceController.java:107)
+	at hudson.model.Executor.run(Executor.java:449)
+Build step 'Conditional step (single)' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,31 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dep-env^{commit} # timeout=10
+Checking out Revision 96129780afe1d68b766ab0651aab46dd90cc8059 (refs/remotes/origin/dep-env)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 96129780afe1d68b766ab0651aab46dd90cc8059 # timeout=10
+Commit message: "add deploy env output"
+First time build. Skipping changelog.
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+Getting commit hash from environment
+Git commit hash: 96129780afe1d68b766ab0651aab46dd90cc8059
+Calling webhook URL: http://localhost:8080/generic-webhook-trigger/invoke?token=0x2d522129fffb8891574bea7b5dff6e566688c1db&GIVEN_GIT_COMMIT=96129780afe1d68b766ab0651aab46dd90cc8059
+Not Found
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Build was aborted
+Aborted by [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

@@ -1,0 +1,525 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/ubuntu/.jenkins/workspace/Voter4-Deployment
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Rohrschacht/augur-main
+ > git init /home/ubuntu/.jenkins/workspace/Voter4-Deployment # timeout=10
+Fetching upstream changes from https://github.com/Rohrschacht/augur-main
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Rohrschacht/augur-main +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Rohrschacht/augur-main # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+Checking out Revision 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 (detached)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Commit message: "export contract deployed contract address"
+ > git rev-list --no-walk 1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6 # timeout=10
+Run condition [Execute Shell] enabling prebuild for step [BuilderChain]
+Run condition [Not] preventing prebuild for step [EthOps: voting]
+[Voter4-Deployment] $ /bin/sh -xe /tmp/CommandInterpreterCondition12207032424528233760.sh
++ set -e
++ rm -f packages/augur-core/src/libraries/ContractDeployer.ts
++ git clone https://github.com/Rohrschacht/augur-deployment-check packages/augur-deployment
+Cloning into 'packages/augur-deployment'...
++ cp -v packages/augur-deployment/ContractDeployer.ts packages/augur-core/src/libraries/ContractDeployer.ts
+'packages/augur-deployment/ContractDeployer.ts' -> 'packages/augur-core/src/libraries/ContractDeployer.ts'
++ python3.8 -m venv venv
++ yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+[3/5] Fetching packages...
+warning Pattern ["concat-stream@github:hugomrdias/concat-stream#feat/smaller"] is trying to unpack in the same destination "/home/ubuntu/.cache/yarn/v6/npm-concat-stream-2.0.0/node_modules/concat-stream" as pattern ["concat-stream@^2.0.0"]. This could result in non-deterministic behavior, skipping.
+[4/5] Linking dependencies...
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "go-ipfs-dep@*".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs@*".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/test > ipfsd-ctl@3.0.0" has unmet peer dependency "ipfs-http-client@*".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/tools > @openzeppelin/gsn-helpers@0.2.3" has unmet peer dependency "chai@^4.2.0".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/ui > @toruslabs/torus-embed@1.7.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/ui > react-router-sitemap@1.2.0" has unmet peer dependency "react-router@^2.3.0 || ^3.2.1 || ^4.3.0".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/sdk > @augurproject/indexeddbshim > typeson@5.18.2" has unmet peer dependency "core-js-bundle@^3.6.4".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/fetch-node-details@2.3.0" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/ui > @toruslabs/torus-embed > @toruslabs/torus.js@2.2.1" has unmet peer dependency "@babel/runtime@7.x".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/ui > enzyme-adapter-react-16 > react-test-renderer@16.13.1" has incorrect peer dependency "react@^16.13.1".
+warning "workspace-aggregator-2fca2780-6a5f-49c4-8512-457231242f24 > @augurproject/sdk > @augurproject/indexeddbshim > typeson-registry > base64-arraybuffer-es6@0.5.0" has unmet peer dependency "core-js-bundle@^3.1.3".
+[5/5] Building fresh packages...
+Done in 105.80s.
++ make build-contracts
+yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+success Already up-to-date.
+Done in 1.60s.
+yarn build
+yarn run v1.22.19
+$ tsc -b
+Done in 27.14s.
+python3 -m pip install virtualenv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /home/ubuntu/.local/lib/python3.10/site-packages (20.21.0)
+Requirement already satisfied: distlib<1,>=0.3.6 in /home/ubuntu/.local/lib/python3.10/site-packages (from virtualenv) (0.3.6)
+Requirement already satisfied: platformdirs<4,>=2.4 in /home/ubuntu/.local/lib/python3.10/site-packages (from virtualenv) (3.2.0)
+Requirement already satisfied: filelock<4,>=3.4.1 in /home/ubuntu/.local/lib/python3.10/site-packages (from virtualenv) (3.11.0)
+python3 -m venv venv
+. venv/bin/activate; \
+python3 -m pip install -r packages/augur-core/requirements.txt; \
+yarn workspace @augurproject/core build:contracts; \
+deactivate
+Collecting atomicwrites==1.3.0
+  Using cached atomicwrites-1.3.0-py2.py3-none-any.whl (5.9 kB)
+Collecting attrdict==2.0.1
+  Using cached attrdict-2.0.1-py2.py3-none-any.whl (9.9 kB)
+Collecting attrs==19.1.0
+  Using cached attrs-19.1.0-py2.py3-none-any.whl (35 kB)
+Collecting augur-solidity-flattener==0.2.5
+  Using cached augur_solidity_flattener-0.2.5-py2.py3-none-any.whl (4.4 kB)
+Collecting base58==1.0.3
+  Using cached base58-1.0.3-py3-none-any.whl (3.1 kB)
+Collecting blake2b-py==0.1.3
+  Using cached blake2b_py-0.1.3-cp38-cp38-manylinux1_x86_64.whl (709 kB)
+Collecting cached-property==1.5.1
+  Using cached cached_property-1.5.1-py2.py3-none-any.whl (6.0 kB)
+Collecting certifi==2019.9.11
+  Using cached certifi-2019.9.11-py2.py3-none-any.whl (154 kB)
+Collecting chardet==3.0.4
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+Collecting cytoolz==0.10.1
+  Using cached cytoolz-0.10.1.tar.gz (475 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting eth-abi==2.0.0
+  Using cached eth_abi-2.0.0-py3-none-any.whl (27 kB)
+Collecting eth-account==0.4.0
+  Using cached eth_account-0.4.0-py3-none-any.whl (26 kB)
+Collecting eth-bloom==1.0.3
+  Using cached eth_bloom-1.0.3-py3-none-any.whl (5.4 kB)
+Collecting eth-hash[pycryptodome]==0.2.0
+  Using cached eth_hash-0.2.0-py3-none-any.whl (7.2 kB)
+Collecting eth-keyfile==0.5.1
+  Using cached eth_keyfile-0.5.1-py3-none-any.whl (8.3 kB)
+Collecting eth-keys==0.2.4
+  Using cached eth_keys-0.2.4-py3-none-any.whl (24 kB)
+Collecting eth-rlp==0.1.2
+  Using cached eth_rlp-0.1.2-py3-none-any.whl (6.5 kB)
+Collecting eth-tester==0.4.0b1
+  Using cached eth_tester-0.4.0b1-py3-none-any.whl (58 kB)
+Collecting eth-typing==2.2.1
+  Using cached eth_typing-2.2.1-py3-none-any.whl (5.1 kB)
+Collecting eth-utils==1.8.4
+  Using cached eth_utils-1.8.4-py3-none-any.whl (23 kB)
+Collecting gprof2dot==2017.9.19
+  Using cached gprof2dot-2017.9.19.tar.gz (23 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting hexbytes==0.2.0
+  Using cached hexbytes-0.2.0-py3-none-any.whl (5.3 kB)
+Collecting idna==2.8
+  Using cached idna-2.8-py2.py3-none-any.whl (58 kB)
+Collecting importlib-metadata==0.23
+  Using cached importlib_metadata-0.23-py2.py3-none-any.whl (28 kB)
+Collecting ipfshttpclient==0.4.12
+  Using cached ipfshttpclient-0.4.12-py2.py3-none-any.whl (157 kB)
+Collecting jsonschema==3.2.0
+  Using cached jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+Collecting lru-dict==1.1.6
+  Using cached lru-dict-1.1.6.tar.gz (9.4 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting more-itertools==7.2.0
+  Using cached more_itertools-7.2.0-py3-none-any.whl (57 kB)
+Collecting multiaddr==0.0.8
+  Using cached multiaddr-0.0.8-py2.py3-none-any.whl (15 kB)
+Collecting mypy-extensions==0.4.1
+  Using cached mypy_extensions-0.4.1-py2.py3-none-any.whl (3.6 kB)
+Collecting netaddr==0.7.19
+  Using cached netaddr-0.7.19-py2.py3-none-any.whl (1.6 MB)
+Collecting numpy==1.18.3
+  Using cached numpy-1.18.3-cp38-cp38-manylinux1_x86_64.whl (20.6 MB)
+Collecting packaging==19.2
+  Using cached packaging-19.2-py2.py3-none-any.whl (30 kB)
+Collecting parsimonious==0.8.1
+  Using cached parsimonious-0.8.1.tar.gz (45 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pluggy==0.13.0
+  Using cached pluggy-0.13.0-py2.py3-none-any.whl (17 kB)
+Collecting protobuf==3.11.2
+  Using cached protobuf-3.11.2-cp38-cp38-manylinux1_x86_64.whl (1.3 MB)
+Collecting py-ecc==1.7.1
+  Using cached py_ecc-1.7.1-py3-none-any.whl (33 kB)
+Collecting py-evm==0.3.0a14
+  Using cached py_evm-0.3.0a14-py3-none-any.whl (231 kB)
+Collecting py-geth==2.2.0
+  Using cached py_geth-2.2.0-py3-none-any.whl (26 kB)
+Collecting py-solc==1.4.0
+  Using cached py_solc-1.4.0-py3-none-any.whl (14 kB)
+Collecting py==1.8.0
+  Using cached py-1.8.0-py2.py3-none-any.whl (83 kB)
+Collecting pycryptodome==3.9.0
+  Using cached pycryptodome-3.9.0.tar.gz (11.6 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pyethash==0.1.27
+  Using cached pyethash-0.1.27.tar.gz (38 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pyparsing==2.4.2
+  Using cached pyparsing-2.4.2-py2.py3-none-any.whl (65 kB)
+Collecting pyrsistent==0.15.6
+  Using cached pyrsistent-0.15.6.tar.gz (107 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pysha3==1.0.2
+  Using cached pysha3-1.0.2.tar.gz (829 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytest-profiling==1.2.11
+  Using cached pytest-profiling-1.2.11.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytest==4.6.5
+  Using cached pytest-4.6.5-py2.py3-none-any.whl (230 kB)
+Collecting requests==2.22.0
+  Using cached requests-2.22.0-py2.py3-none-any.whl (57 kB)
+Collecting rlp==1.1.0
+  Using cached rlp-1.1.0-py2.py3-none-any.whl (18 kB)
+Collecting semantic-version==2.8.2
+  Using cached semantic_version-2.8.2-py2.py3-none-any.whl (15 kB)
+Collecting six==1.12.0
+  Using cached six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting toolz==0.10.0
+  Using cached toolz-0.10.0.tar.gz (49 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting trie==1.4.0
+  Using cached trie-1.4.0-py3-none-any.whl (25 kB)
+Collecting typing-extensions==3.7.4.1
+  Using cached typing_extensions-3.7.4.1-py3-none-any.whl (20 kB)
+Collecting urllib3==1.25.5
+  Using cached urllib3-1.25.5-py2.py3-none-any.whl (125 kB)
+Collecting varint==1.0.2
+  Using cached varint-1.0.2.tar.gz (1.9 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting virtualenv==15.2.0
+  Using cached virtualenv-15.2.0-py2.py3-none-any.whl (2.6 MB)
+Collecting wcwidth==0.1.7
+  Using cached wcwidth-0.1.7-py2.py3-none-any.whl (21 kB)
+Collecting web3==5.6.0
+  Using cached web3-5.6.0-py3-none-any.whl (459 kB)
+Collecting websockets==8.1
+  Using cached websockets-8.1-cp38-cp38-manylinux2010_x86_64.whl (78 kB)
+Collecting zipp==0.6.0
+  Using cached zipp-0.6.0-py2.py3-none-any.whl (4.1 kB)
+Requirement already satisfied: setuptools in ./venv/lib/python3.8/site-packages (from jsonschema==3.2.0->-r packages/augur-core/requirements.txt (line 32)) (56.0.0)
+Using legacy 'setup.py install' for cytoolz, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for gprof2dot, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for lru-dict, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for parsimonious, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pycryptodome, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pyethash, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pyrsistent, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pysha3, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for pytest-profiling, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for toolz, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for varint, since package 'wheel' is not installed.
+Installing collected packages: wcwidth, virtualenv, varint, typing-extensions, pysha3, pyethash, netaddr, mypy-extensions, lru-dict, gprof2dot, chardet, certifi, cached-property, blake2b-py, base58, augur-solidity-flattener, websockets, urllib3, toolz, six, semantic-version, pyparsing, pycryptodome, py, pluggy, numpy, more-itertools, idna, eth-typing, eth-hash, attrs, atomicwrites, zipp, requests, pyrsistent, py-solc, py-geth, protobuf, parsimonious, packaging, multiaddr, eth-bloom, cytoolz, attrdict, jsonschema, ipfshttpclient, importlib-metadata, eth-utils, rlp, pytest, py-ecc, hexbytes, eth-keys, eth-abi, trie, pytest-profiling, eth-tester, eth-rlp, eth-keyfile, py-evm, eth-account, web3
+  Running setup.py install for varint: started
+  Running setup.py install for varint: finished with status 'done'
+  Running setup.py install for pysha3: started
+  Running setup.py install for pysha3: finished with status 'done'
+  Running setup.py install for pyethash: started
+  Running setup.py install for pyethash: finished with status 'done'
+  Running setup.py install for lru-dict: started
+  Running setup.py install for lru-dict: finished with status 'done'
+  Running setup.py install for gprof2dot: started
+  Running setup.py install for gprof2dot: finished with status 'done'
+  Running setup.py install for toolz: started
+  Running setup.py install for toolz: finished with status 'done'
+  Running setup.py install for pycryptodome: started
+  Running setup.py install for pycryptodome: finished with status 'done'
+  Running setup.py install for pyrsistent: started
+  Running setup.py install for pyrsistent: finished with status 'done'
+  Running setup.py install for parsimonious: started
+  Running setup.py install for parsimonious: finished with status 'done'
+  Running setup.py install for cytoolz: started
+  Running setup.py install for cytoolz: finished with status 'done'
+  Running setup.py install for pytest-profiling: started
+  Running setup.py install for pytest-profiling: finished with status 'done'
+Successfully installed atomicwrites-1.3.0 attrdict-2.0.1 attrs-19.1.0 augur-solidity-flattener-0.2.5 base58-1.0.3 blake2b-py-0.1.3 cached-property-1.5.1 certifi-2019.9.11 chardet-3.0.4 cytoolz-0.10.1 eth-abi-2.0.0 eth-account-0.4.0 eth-bloom-1.0.3 eth-hash-0.2.0 eth-keyfile-0.5.1 eth-keys-0.2.4 eth-rlp-0.1.2 eth-tester-0.4.0b1 eth-typing-2.2.1 eth-utils-1.8.4 gprof2dot-2017.9.19 hexbytes-0.2.0 idna-2.8 importlib-metadata-0.23 ipfshttpclient-0.4.12 jsonschema-3.2.0 lru-dict-1.1.6 more-itertools-7.2.0 multiaddr-0.0.8 mypy-extensions-0.4.1 netaddr-0.7.19 numpy-1.18.3 packaging-19.2 parsimonious-0.8.1 pluggy-0.13.0 protobuf-3.11.2 py-1.8.0 py-ecc-1.7.1 py-evm-0.3.0a14 py-geth-2.2.0 py-solc-1.4.0 pycryptodome-3.9.0 pyethash-0.1.27 pyparsing-2.4.2 pyrsistent-0.15.6 pysha3-1.0.2 pytest-4.6.5 pytest-profiling-1.2.11 requests-2.22.0 rlp-1.1.0 semantic-version-2.8.2 six-1.12.0 toolz-0.10.0 trie-1.4.0 typing-extensions-3.7.4.1 urllib3-1.25.5 varint-1.0.2 virtualenv-15.2.0 wcwidth-0.1.7 web3-5.6.0 websockets-8.1 zipp-0.6.0
+WARNING: You are using pip version 22.0.4; however, version 23.0.1 is available.
+You should consider upgrading via the '/home/ubuntu/.jenkins/workspace/Voter4-Deployment/venv/bin/python3 -m pip install --upgrade pip' command.
+yarn workspace v1.22.19
+yarn run v1.22.19
+$ node -r ts-node/register src/deployment/compileContracts.ts && npm run build:documentation
+Compiling contracts, this may take a minute...
+npm WARN lifecycle The node binary used for scripts is /tmp/yarn--1681173518718-0.11583251359367508/node but npm is using /home/ubuntu/.nvm/versions/node/v12.22.12/bin/node itself. Use the `--scripts-prepend-node-path` option to include the path for the node binary npm was executed with.
+
+> @augurproject/core@2.0.5 build:documentation /home/ubuntu/.jenkins/workspace/Voter4-Deployment/packages/augur-core
+> yarn solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+
+$ /home/ubuntu/.jenkins/workspace/Voter4-Deployment/node_modules/.bin/solidity-docgen -s ./output/contracts/contracts_full.json -o ../../docs/contracts
+Done in 70.57s.
+Done in 71.04s.
++ yarn tools flash --config {"ethereum": {"http": "http://10.0.0.12:8545"}} deploy
+yarn run v1.22.19
+$ yarn workspace @augurproject/tools flash --config '{"ethereum": {"http": "http://10.0.0.12:8545"}}' deploy
+$ ts-node ./src/flash/cli --config '{"ethereum": {"http": "http://10.0.0.12:8545"}}' deploy
+Deploying:  {
+  isProduction: false,
+  enableFaucets: true,
+  normalTime: true,
+  writeArtifacts: true,
+  serial: true
+}
+Processing 66 contracts
+Processing contract: ERC1155Proxy
+Processing contract: ERC20Proxy
+Processing contract: ERC721Proxy
+Processing contract: MultiAssetProxy
+Processing contract: ChaiBridge
+Processing contract: Coordinator
+Processing contract: CoordinatorRegistry
+Processing contract: DevUtils
+Processing contract: WETH9
+Processing contract: ZRXToken
+Processing contract: Exchange
+Processing contract: Augur
+Processing contract: AugurWallet
+Processing contract: AugurWalletRegistry
+Processing contract: AugurWalletRegistryV2
+Processing contract: Cash
+Processing contract: LegacyReputationToken
+Processing contract: TestNetReputationToken
+Processing contract: Time
+Processing contract: TimeControlled
+Processing contract: USDC
+Processing contract: USDT
+Processing contract: WarpSync
+Processing contract: AugurWalletFactory
+Processing contract: DisputeCrowdsourcerFactory
+Processing contract: DisputeWindowFactory
+Processing contract: InitialReporterFactory
+Processing contract: MarketFactory
+Processing contract: OICashFactory
+Processing contract: ReputationTokenFactory
+Processing contract: TestNetReputationTokenFactory
+Processing contract: UniverseFactory
+Processing contract: RelayHub
+Processing contract: Penalizer
+Processing contract: RelayHubV2
+Processing contract: StakeManager
+Processing contract: AffiliateValidator
+Processing contract: Affiliates
+Processing contract: DisputeCrowdsourcer
+Processing contract: DisputeWindow
+Processing contract: InitialReporter
+Processing contract: Market
+Processing contract: OICash
+Processing contract: RepOracle
+Processing contract: ReputationToken
+Processing contract: ShareToken
+Processing contract: Universe
+Processing contract: AugurTrading
+Processing contract: CancelOrder
+Processing contract: CreateOrder
+Processing contract: FillOrder
+Processing contract: Orders
+Processing contract: ProfitLoss
+Processing contract: SimulateTrade
+Processing contract: Trade
+Processing contract: ZeroXTrade
+Processing contract: UniswapV2Factory
+Processing contract: UniswapV2Pair
+Processing contract: UniswapV2Router02
+Processing contract: AccountLoader
+Processing contract: AuditFunds
+Processing contract: BuyParticipationTokens
+Processing contract: Formulas
+Processing contract: HotLoading
+Processing contract: RedeemStake
+Processing contract: RepSymbol
+Uploading Augur Wallet Factory...
+Uploading augur...
+CONTRACT_ADDRESS=
+Done in 3.59s.
++ git clone https://github.com/Rohrschacht/ContractBytecodeComparer
+Cloning into 'ContractBytecodeComparer'...
++ cd ContractBytecodeComparer
++ poetry install
+Creating virtualenv contractbytecodecomparer-bCi4VTN5-py3.10 in /home/ubuntu/.cache/pypoetry/virtualenvs
+Installing dependencies from lock file
+
+Package operations: 39 installs, 0 updates, 0 removals
+
+  • Installing toolz (0.12.0)
+  • Installing cytoolz (0.12.1)
+  • Installing eth-hash (0.3.3)
+  • Installing eth-typing (2.3.0)
+  • Installing eth-utils (1.10.0)
+  • Installing six (1.16.0)
+  • Installing base58 (2.1.1)
+  • Installing certifi (2022.12.7)
+  • Installing charset-normalizer (3.1.0)
+  • Installing eth-keys (0.3.4)
+  • Installing frozenlist (1.3.3)
+  • Installing hexbytes (0.3.0)
+  • Installing idna (3.4)
+  • Installing multidict (6.0.4)
+  • Installing netaddr (0.8.0)
+  • Installing parsimonious (0.8.1)
+  • Installing pycryptodome (3.17)
+  • Installing rlp (2.0.1)
+  • Installing urllib3 (1.26.14)
+  • Installing varint (1.0.2)
+  • Installing aiosignal (1.3.1)
+  • Installing async-timeout (4.0.2)
+  • Installing attrs (22.2.0)
+  • Installing bitarray (2.7.3)
+  • Installing eth-abi (2.2.0)
+  • Installing eth-keyfile (0.5.1)
+  • Installing eth-rlp (0.2.1)
+  • Installing multiaddr (0.0.9)
+  • Installing pyrsistent (0.19.3)
+  • Installing requests (2.28.2)
+  • Installing yarl (1.8.2)
+  • Installing aiohttp (3.8.4)
+  • Installing eth-account (0.5.9)
+  • Installing ipfshttpclient (0.8.0a2)
+  • Installing jsonschema (4.17.3)
+  • Installing lru-dict (1.1.8)
+  • Installing protobuf (3.19.5)
+  • Installing websockets (9.1)
+  • Installing web3 (5.31.3)
++ poetry run python main.py --rpc http://10.0.0.12:8545 0x474Af070DE22204c9aa0D882EC609Fa75bbb4A65 ../packages/augur-tools/contract_bytecode.txt
+Traceback (most recent call last):
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f6d42d9ed10>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8545): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6d42d9ed10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.jenkins/workspace/Voter4-Deployment/ContractBytecodeComparer/main.py", line 52, in <module>
+    exit_code = 0 if main(args.rpc, args.contract_address, args.contract_file) else 1
+  File "/home/ubuntu/.jenkins/workspace/Voter4-Deployment/ContractBytecodeComparer/main.py", line 11, in main
+    block_number = w3.eth.block_number
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/eth.py", line 620, in block_number
+    return self.get_block_number()
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/module.py", line 57, in caller
+    result = w3.manager.request_blocking(method_str,
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/manager.py", line 197, in request_blocking
+    response = self._make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/manager.py", line 150, in _make_request
+    return request_func(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/formatting.py", line 94, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/gas_price_strategy.py", line 90, in middleware
+    return make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/formatting.py", line 94, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/attrdict.py", line 33, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/formatting.py", line 94, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/formatting.py", line 94, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/formatting.py", line 94, in middleware
+    response = make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/buffered_gas_estimate.py", line 40, in middleware
+    return make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/middleware/exception_retry_request.py", line 105, in middleware
+    return make_request(method, params)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/providers/rpc.py", line 88, in make_request
+    raw_response = make_post_request(
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/web3/_utils/request.py", line 112, in make_post_request
+    response = session.post(endpoint_uri, data=data, *args, **kwargs)  # type: ignore
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ubuntu/.cache/pypoetry/virtualenvs/contractbytecodecomparer-bCi4VTN5-py3.10/lib/python3.10/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8545): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6d42d9ed10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Run condition [Execute Shell] preventing perform for step [BuilderChain]
+Variable Existence Condition: checking "SUCCESS" variable 
+Run condition [Not] enabling perform for step [EthOps: voting]
+Getting givencontract address from environment
+Contract address: 0x474Af070DE22204c9aa0D882EC609Fa75bbb4A65
+Finished: SUCCESS

@@ -1,0 +1,56 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/release^{commit} # timeout=10
+Checking out Revision 908052ae701e3d49c5f814d2b47f2a442706a8d1 (refs/remotes/origin/release)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 908052ae701e3d49c5f814d2b47f2a442706a8d1 # timeout=10
+Commit message: "v2.0.5"
+ > git rev-list --no-walk 908052ae701e3d49c5f814d2b47f2a442706a8d1 # timeout=10
+Getting commit hash from environment
+Git commit hash: 908052ae701e3d49c5f814d2b47f2a442706a8d1
+Calling webhook URL: http://localhost:8080/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=908052ae701e3d49c5f814d2b47f2a442706a8d1
+OK
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Build step 'EthOps: main pipeline' changed build result to FAILURE
+Finished: FAILURE

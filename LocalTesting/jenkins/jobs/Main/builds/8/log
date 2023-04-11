@@ -1,0 +1,60 @@
+Started by user [8mha:////4E1BJeSkhoNbPW7OBH7HhgjMJA06hkUXx/zsCAPI0CxwAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Main
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/tobias/.jenkins/workspace/Main/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dep-env^{commit} # timeout=10
+Checking out Revision 96129780afe1d68b766ab0651aab46dd90cc8059 (refs/remotes/origin/dep-env)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 96129780afe1d68b766ab0651aab46dd90cc8059 # timeout=10
+Commit message: "add deploy env output"
+ > git rev-list --no-walk 96129780afe1d68b766ab0651aab46dd90cc8059 # timeout=10
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+Getting commit hash from environment
+Git commit hash: 96129780afe1d68b766ab0651aab46dd90cc8059
+Calling webhook URL: http://localhost:8080/generic-webhook-trigger/invoke?token=0x9611075f14efec782533a711e07bbee564550aa2&GIVEN_GIT_COMMIT=96129780afe1d68b766ab0651aab46dd90cc8059
+OK
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+Checking if VersionProposal is accepted or rejected
+[Main] $ /bin/sh -xe /tmp/jenkins4706682936869357255.sh
++ yarn
+yarn install v1.22.19
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning Resolution field "sha3@2.0.1" is incompatible with requested version "sha3@^1.2.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.19"
+warning Resolution field "@0x/mesh-browser-lite@v10.0.0-unstable-6" is incompatible with requested version "@0x/mesh-browser-lite@^9.4.0"
+warning Resolution field "bignumber.js@9.0.0" is incompatible with requested version "bignumber.js@~8.0.2"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@4.17.14"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+warning Resolution field "lodash@4.17.15" is incompatible with requested version "lodash@=3.10.1"
+warning Resolution field "ethers@4.0.47" is incompatible with requested version "ethers@4.0.0-beta.3"
+error Package "augur-core" refers to a non-existing file '"/home/tobias/.jenkins/workspace/augur-core"'.
+info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+warning Resolution field "leveldown@5.4.1" is incompatible with requested version "leveldown@~5.1.1"
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

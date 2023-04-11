@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "processmining"
+version = "0.1.0"
+description = ""
+authors = ["Tobias Petrich <tobias.petrich@campus.tu-berlin.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pm4py = "^2.7.2"
+cvxopt = "1.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: EthOps
+Specification-Version: 1.0
+Implementation-Title: EthOps
+Implementation-Version: 1.0-SNAPSHOT
+Group-Id: io.jenkins.plugins
+Short-Name: EthOps
+Long-Name: EthOps
+Url: https://github.com/jenkinsci/EthOps-plugin
+Plugin-Version: 1.0-SNAPSHOT (private-04/10/2023 01:44-tobias)
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Dependencies: credentials:2.1.10,structs:324.va_f5d6774f3a_d
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/EthOps-plugin
+

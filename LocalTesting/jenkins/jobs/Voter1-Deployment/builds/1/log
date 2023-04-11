@@ -1,0 +1,20 @@
+Generic Cause
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/tobias/.jenkins/workspace/Voter1-Deployment
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository file:///home/tobias/sandbox/augur
+ > git init /home/tobias/.jenkins/workspace/Voter1-Deployment # timeout=10
+Fetching upstream changes from file:///home/tobias/sandbox/augur
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- file:///home/tobias/sandbox/augur +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url file:///home/tobias/sandbox/augur # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+ > git rev-parse origin/1433f34c0ef646f17023bb8b57fd7beb5a6e4ae6^{commit} # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE
