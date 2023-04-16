@@ -18,5 +18,5 @@ plt.yticks(np.linspace(0, y[-1], 20))
 plt.xlabel('Number of voters')
 plt.ylabel('Gas cost')
 
-plt.savefig('gas_cost_per_number_of_voters.png', bbox_inches='tight')
+plt.savefig('gas_cost_per_number_of_voters.pdf', bbox_inches='tight')
 
